@@ -14,7 +14,9 @@ dependencies {
     testImplementation(kotlin("test"))
 }
 
+@OptIn(org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation::class)
 kotlin {
+    abiValidation {}
     jvmToolchain(8)
     compilerOptions {
         jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_1_8)

@@ -1,0 +1,2910 @@
+public final class gg/sona/eos/Eos {
+	public static final field INSTANCE Lgg/sona/eos/Eos;
+	public final fun byteArrayToString ([BII)Ljava/lang/String;
+	public static synthetic fun byteArrayToString$default (Lgg/sona/eos/Eos;[BIIILjava/lang/Object;)Ljava/lang/String;
+	public final fun createPlatform (Lgg/sona/eos/EosPlatformOptions;)Lgg/sona/eos/EosPlatform;
+	public final fun getVersion ()Ljava/lang/String;
+	public final fun initialize (Lgg/sona/eos/EosInitializeOptions;)Lgg/sona/eos/EosResult;
+	public final fun isInitialized ()Z
+	public final fun shutdown ()Lgg/sona/eos/EosResult;
+}
+
+public final class gg/sona/eos/EosClientCredentials {
+	public static final field Companion Lgg/sona/eos/EosClientCredentials$Companion;
+	public fun <init> ()V
+	public final fun getClientId ()Ljava/lang/String;
+	public final fun getClientSecret ()Ljava/lang/String;
+	public final fun setClientId (Ljava/lang/String;)V
+	public final fun setClientSecret (Ljava/lang/String;)V
+}
+
+public final class gg/sona/eos/EosClientCredentials$Companion {
+	public final fun of (Ljava/lang/String;Ljava/lang/String;)Lgg/sona/eos/EosClientCredentials;
+}
+
+public final class gg/sona/eos/EosException : java/lang/RuntimeException {
+	public fun <init> (Lgg/sona/eos/EosResult;Ljava/lang/String;Ljava/lang/Throwable;)V
+	public synthetic fun <init> (Lgg/sona/eos/EosResult;Ljava/lang/String;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;)V
+	public final fun getResult ()Lgg/sona/eos/EosResult;
+}
+
+public final class gg/sona/eos/EosInitializeOptions : gg/sona/eos/internal/StructWriter {
+	public static final field API_LATEST I
+	public static final field Companion Lgg/sona/eos/EosInitializeOptions$Companion;
+	public final fun build ()Lgg/sona/eos/EosInitializeOptions;
+	public final fun getAllocateMemory ()Lkotlin/jvm/functions/Function2;
+	public final fun getApiVersion ()I
+	public final fun getProductName ()Ljava/lang/String;
+	public final fun getProductVersion ()Ljava/lang/String;
+	public final fun getReallocateMemory ()Lkotlin/jvm/functions/Function3;
+	public final fun getReleaseMemory ()Lkotlin/jvm/functions/Function1;
+	public final fun setAllocateMemory (Lkotlin/jvm/functions/Function2;)V
+	public final fun setApiVersion (I)V
+	public final fun setProductName (Ljava/lang/String;)V
+	public final fun setProductVersion (Ljava/lang/String;)V
+	public final fun setReallocateMemory (Lkotlin/jvm/functions/Function3;)V
+	public final fun setReleaseMemory (Lkotlin/jvm/functions/Function1;)V
+	public fun writeTo (Lgg/sona/eos/internal/foreign/Arena;)Lgg/sona/eos/internal/foreign/MemorySegment;
+}
+
+public final class gg/sona/eos/EosInitializeOptions$Companion {
+	public final fun create (Ljava/lang/String;Ljava/lang/String;)Lgg/sona/eos/EosInitializeOptions;
+}
+
+public final class gg/sona/eos/EosPlatform : java/lang/AutoCloseable {
+	public final fun checkForLauncherAndRestart ()Lgg/sona/eos/EosResult;
+	public fun close ()V
+	public final fun getAchievements ()Lgg/sona/eos/achievements/EosAchievements;
+	public final fun getActiveCountryCode-5lOE03A (J)Ljava/lang/String;
+	public final fun getAntiCheatClient ()Lgg/sona/eos/anticheat/client/EosAntiCheatClient;
+	public final fun getAntiCheatServer ()Lgg/sona/eos/anticheat/server/EosAntiCheatServer;
+	public final fun getApplicationStatus ()Lgg/sona/eos/common/EosApplicationStatus;
+	public final fun getAuth ()Lgg/sona/eos/auth/EosAuth;
+	public final fun getConnect ()Lgg/sona/eos/connect/EosConnect;
+	public final fun getCustomInvites ()Lgg/sona/eos/custominvites/EosCustomInvites;
+	public final fun getEcom ()Lgg/sona/eos/ecom/EosEcom;
+	public final fun getFriends ()Lgg/sona/eos/friends/EosFriends;
+	public final fun getIntegratedPlatform ()Lgg/sona/eos/integratedplatform/EosIntegratedPlatform;
+	public final fun getKws ()Lgg/sona/eos/kws/EosKws;
+	public final fun getLeaderboards ()Lgg/sona/eos/leaderboards/EosLeaderboards;
+	public final fun getLobby ()Lgg/sona/eos/lobby/EosLobby;
+	public final fun getMetrics ()Lgg/sona/eos/metrics/EosMetrics;
+	public final fun getMods ()Lgg/sona/eos/mods/EosMods;
+	public final fun getNetworkStatus ()Lgg/sona/eos/common/EosNetworkStatus;
+	public final fun getP2p ()Lgg/sona/eos/p2p/EosP2P;
+	public final fun getPlayerDataStorage ()Lgg/sona/eos/playerdatastorage/EosPlayerDataStorage;
+	public final fun getPresence ()Lgg/sona/eos/presence/EosPresence;
+	public final fun getProgressionSnapshot ()Lgg/sona/eos/progressionsnapshot/EosProgressionSnapshot;
+	public final fun getReports ()Lgg/sona/eos/reports/EosReports;
+	public final fun getRtc ()Lgg/sona/eos/rtc/EosRtc;
+	public final fun getSanctions ()Lgg/sona/eos/sanctions/EosSanctions;
+	public final fun getSessions ()Lgg/sona/eos/sessions/EosSessions;
+	public final fun getStats ()Lgg/sona/eos/stats/EosStats;
+	public final fun getTitleStorage ()Lgg/sona/eos/titlestorage/EosTitleStorage;
+	public final fun getUi ()Lgg/sona/eos/ui/EosUi;
+	public final fun getUserInfo ()Lgg/sona/eos/userinfo/EosUserInfo;
+	public final fun isReleased ()Z
+	public final fun setApplicationStatus (Lgg/sona/eos/common/EosApplicationStatus;)Lgg/sona/eos/EosResult;
+	public final fun setNetworkStatus (Lgg/sona/eos/common/EosNetworkStatus;)Lgg/sona/eos/EosResult;
+	public final fun tick ()V
+}
+
+public final class gg/sona/eos/EosPlatformFlags {
+	public static final field ConsoleEnableOverlayAutomaticUnloading I
+	public static final field DisableOverlay I
+	public static final field DisableSocialOverlay I
+	public static final field EnableOverlayDebugLogging I
+	public static final field INSTANCE Lgg/sona/eos/EosPlatformFlags;
+	public static final field LoadingInEditor I
+	public static final field Reserved1 I
+	public static final field WindowsEnableOverlayD3D10 I
+	public static final field WindowsEnableOverlayD3D9 I
+	public static final field WindowsEnableOverlayOpenGL I
+}
+
+public final class gg/sona/eos/EosPlatformOptions : gg/sona/eos/internal/StructWriter {
+	public static final field API_LATEST I
+	public static final field Companion Lgg/sona/eos/EosPlatformOptions$Companion;
+	public final fun getApiVersion ()I
+	public final fun getCacheDirectory ()Ljava/lang/String;
+	public final fun getClientCredentials ()Lgg/sona/eos/EosClientCredentials;
+	public final fun getDeploymentId ()Ljava/lang/String;
+	public final fun getEncryptionKey ()Ljava/lang/String;
+	public final fun getFlags ()I
+	public final fun getOverrideCountryCode ()Ljava/lang/String;
+	public final fun getOverrideLocaleCode ()Ljava/lang/String;
+	public final fun getProductId ()Ljava/lang/String;
+	public final fun getRtcOptions ()Lgg/sona/eos/EosRtcOptions;
+	public final fun getSandboxId ()Ljava/lang/String;
+	public final fun getTickBudgetInMilliseconds ()I
+	public final fun isServer ()Z
+	public final fun setApiVersion (I)V
+	public final fun setCacheDirectory (Ljava/lang/String;)V
+	public final fun setClientCredentials (Lgg/sona/eos/EosClientCredentials;)V
+	public final fun setDeploymentId (Ljava/lang/String;)V
+	public final fun setEncryptionKey (Ljava/lang/String;)V
+	public final fun setFlags (I)V
+	public final fun setOverrideCountryCode (Ljava/lang/String;)V
+	public final fun setOverrideLocaleCode (Ljava/lang/String;)V
+	public final fun setProductId (Ljava/lang/String;)V
+	public final fun setRtcOptions (Lgg/sona/eos/EosRtcOptions;)V
+	public final fun setSandboxId (Ljava/lang/String;)V
+	public final fun setServer (Z)V
+	public final fun setTickBudgetInMilliseconds (I)V
+	public fun writeTo (Lgg/sona/eos/internal/foreign/Arena;)Lgg/sona/eos/internal/foreign/MemorySegment;
+}
+
+public final class gg/sona/eos/EosPlatformOptions$Companion {
+	public final fun create (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lgg/sona/eos/EosClientCredentials;)Lgg/sona/eos/EosPlatformOptions;
+}
+
+public final class gg/sona/eos/EosResult : java/lang/Enum {
+	public static final field AccessDenied Lgg/sona/eos/EosResult;
+	public static final field AlreadyConfigured Lgg/sona/eos/EosResult;
+	public static final field AlreadyPending Lgg/sona/eos/EosResult;
+	public static final field AndroidJavaVmNotStored Lgg/sona/eos/EosResult;
+	public static final field AndroidReservedMustBeNull Lgg/sona/eos/EosResult;
+	public static final field AndroidReservedMustReferenceLocalVm Lgg/sona/eos/EosResult;
+	public static final field AntiCheatClientDeploymentIdMismatch Lgg/sona/eos/EosResult;
+	public static final field AntiCheatClientProductIdMismatch Lgg/sona/eos/EosResult;
+	public static final field AntiCheatClientProtectionNotAvailable Lgg/sona/eos/EosResult;
+	public static final field AntiCheatClientSandboxIdMismatch Lgg/sona/eos/EosResult;
+	public static final field AntiCheatDeviceIdAuthIsNotSupported Lgg/sona/eos/EosResult;
+	public static final field AntiCheatInvalidMode Lgg/sona/eos/EosResult;
+	public static final field AntiCheatPeerAlreadyRegistered Lgg/sona/eos/EosResult;
+	public static final field AntiCheatPeerNotFound Lgg/sona/eos/EosResult;
+	public static final field AntiCheatPeerNotProtected Lgg/sona/eos/EosResult;
+	public static final field AntiCheatProtectMessageInitializationFailed Lgg/sona/eos/EosResult;
+	public static final field AntiCheatProtectMessageSessionKeyRequired Lgg/sona/eos/EosResult;
+	public static final field AntiCheatProtectMessageValidationFailed Lgg/sona/eos/EosResult;
+	public static final field ApplicationSuspended Lgg/sona/eos/EosResult;
+	public static final field AuthAccountFeatureRestricted Lgg/sona/eos/EosResult;
+	public static final field AuthAccountLocked Lgg/sona/eos/EosResult;
+	public static final field AuthAccountLockedForUpdate Lgg/sona/eos/EosResult;
+	public static final field AuthAccountNotActive Lgg/sona/eos/EosResult;
+	public static final field AuthAccountPortalLoadError Lgg/sona/eos/EosResult;
+	public static final field AuthApplicationNotFound Lgg/sona/eos/EosResult;
+	public static final field AuthAuthenticationFailure Lgg/sona/eos/EosResult;
+	public static final field AuthCorrectiveActionRequired Lgg/sona/eos/EosResult;
+	public static final field AuthExchangeCodeNotFound Lgg/sona/eos/EosResult;
+	public static final field AuthExpired Lgg/sona/eos/EosResult;
+	public static final field AuthExternalAuthCannotLogin Lgg/sona/eos/EosResult;
+	public static final field AuthExternalAuthExpired Lgg/sona/eos/EosResult;
+	public static final field AuthExternalAuthInvalid Lgg/sona/eos/EosResult;
+	public static final field AuthExternalAuthIsLastLoginType Lgg/sona/eos/EosResult;
+	public static final field AuthExternalAuthNotLinked Lgg/sona/eos/EosResult;
+	public static final field AuthExternalAuthRestricted Lgg/sona/eos/EosResult;
+	public static final field AuthExternalAuthRevoked Lgg/sona/eos/EosResult;
+	public static final field AuthFullAccountRequired Lgg/sona/eos/EosResult;
+	public static final field AuthHeadlessAccountRequired Lgg/sona/eos/EosResult;
+	public static final field AuthInvalidPlatformToken Lgg/sona/eos/EosResult;
+	public static final field AuthInvalidRefreshToken Lgg/sona/eos/EosResult;
+	public static final field AuthInvalidToken Lgg/sona/eos/EosResult;
+	public static final field AuthMfaRequired Lgg/sona/eos/EosResult;
+	public static final field AuthNoRealId Lgg/sona/eos/EosResult;
+	public static final field AuthOriginatingExchangeCodeSessionExpired Lgg/sona/eos/EosResult;
+	public static final field AuthParentalControls Lgg/sona/eos/EosResult;
+	public static final field AuthPasswordCannotBeReused Lgg/sona/eos/EosResult;
+	public static final field AuthPasswordResetRequired Lgg/sona/eos/EosResult;
+	public static final field AuthPinGrantCode Lgg/sona/eos/EosResult;
+	public static final field AuthPinGrantExpired Lgg/sona/eos/EosResult;
+	public static final field AuthPinGrantPending Lgg/sona/eos/EosResult;
+	public static final field AuthScopeConsentRequired Lgg/sona/eos/EosResult;
+	public static final field AuthScopeNotFound Lgg/sona/eos/EosResult;
+	public static final field AuthUserInterfaceRequired Lgg/sona/eos/EosResult;
+	public static final field AuthWrongAccount Lgg/sona/eos/EosResult;
+	public static final field AuthWrongClient Lgg/sona/eos/EosResult;
+	public static final field CacheDirectoryInvalid Lgg/sona/eos/EosResult;
+	public static final field CacheDirectoryMissing Lgg/sona/eos/EosResult;
+	public static final field Canceled Lgg/sona/eos/EosResult;
+	public static final field ClientPolicyMissingAction Lgg/sona/eos/EosResult;
+	public static final field Companion Lgg/sona/eos/EosResult$Companion;
+	public static final field ConnectAuthExpired Lgg/sona/eos/EosResult;
+	public static final field ConnectExternalServiceConfigurationFailure Lgg/sona/eos/EosResult;
+	public static final field ConnectExternalServiceUnavailable Lgg/sona/eos/EosResult;
+	public static final field ConnectExternalTokenValidationFailed Lgg/sona/eos/EosResult;
+	public static final field ConnectInvalidToken Lgg/sona/eos/EosResult;
+	public static final field ConnectLinkAccountFailed Lgg/sona/eos/EosResult;
+	public static final field ConnectUnsupportedTokenType Lgg/sona/eos/EosResult;
+	public static final field ConnectUserAlreadyExists Lgg/sona/eos/EosResult;
+	public static final field ConsoleInitCacheStorageIndexOutOfRange Lgg/sona/eos/EosResult;
+	public static final field ConsoleInitCacheStorageSizeKbBelowMinimumSize Lgg/sona/eos/EosResult;
+	public static final field ConsoleInitCacheStorageSizeKbExceedsMaximumSize Lgg/sona/eos/EosResult;
+	public static final field ConsoleInitCacheStorageSizeKbNotMultipleOf16 Lgg/sona/eos/EosResult;
+	public static final field ConsoleInitOnNetworkRequestedDeprecatedCallbackNotSet Lgg/sona/eos/EosResult;
+	public static final field CustomInvitesInviteFailed Lgg/sona/eos/EosResult;
+	public static final field DesktopCrossplayApplicationNotBootstrapped Lgg/sona/eos/EosResult;
+	public static final field DesktopCrossplayServiceNotInstalled Lgg/sona/eos/EosResult;
+	public static final field DesktopCrossplayServiceNotRunning Lgg/sona/eos/EosResult;
+	public static final field DesktopCrossplayServiceStartFailed Lgg/sona/eos/EosResult;
+	public static final field Disabled Lgg/sona/eos/EosResult;
+	public static final field DuplicateNotAllowed Lgg/sona/eos/EosResult;
+	public static final field EcomCatalogItemStale Lgg/sona/eos/EosResult;
+	public static final field EcomCatalogOfferInvalid Lgg/sona/eos/EosResult;
+	public static final field EcomCatalogOfferPriceInvalid Lgg/sona/eos/EosResult;
+	public static final field EcomCatalogOfferStale Lgg/sona/eos/EosResult;
+	public static final field EcomCheckoutLoadError Lgg/sona/eos/EosResult;
+	public static final field EcomEntitlementStale Lgg/sona/eos/EosResult;
+	public static final field EcomPurchaseProcessing Lgg/sona/eos/EosResult;
+	public static final field FriendsAlreadyFriends Lgg/sona/eos/EosResult;
+	public static final field FriendsInviteAwaitingAcceptance Lgg/sona/eos/EosResult;
+	public static final field FriendsLocalUserFriendLimitExceeded Lgg/sona/eos/EosResult;
+	public static final field FriendsLocalUserTooManyInvites Lgg/sona/eos/EosResult;
+	public static final field FriendsNoInvitation Lgg/sona/eos/EosResult;
+	public static final field FriendsNotFriends Lgg/sona/eos/EosResult;
+	public static final field FriendsTargetUserFriendLimitExceeded Lgg/sona/eos/EosResult;
+	public static final field FriendsTargetUserTooManyInvites Lgg/sona/eos/EosResult;
+	public static final field IncompatibleVersion Lgg/sona/eos/EosResult;
+	public static final field InsufficientOutputBuffer Lgg/sona/eos/EosResult;
+	public static final field InvalidAuth Lgg/sona/eos/EosResult;
+	public static final field InvalidCredentials Lgg/sona/eos/EosResult;
+	public static final field InvalidDeployment Lgg/sona/eos/EosResult;
+	public static final field InvalidParameters Lgg/sona/eos/EosResult;
+	public static final field InvalidProduct Lgg/sona/eos/EosResult;
+	public static final field InvalidProductUserId Lgg/sona/eos/EosResult;
+	public static final field InvalidRequest Lgg/sona/eos/EosResult;
+	public static final field InvalidSandbox Lgg/sona/eos/EosResult;
+	public static final field InvalidSandboxId Lgg/sona/eos/EosResult;
+	public static final field InvalidState Lgg/sona/eos/EosResult;
+	public static final field InvalidUser Lgg/sona/eos/EosResult;
+	public static final field KwsParentEmailMissing Lgg/sona/eos/EosResult;
+	public static final field KwsUserGraduated Lgg/sona/eos/EosResult;
+	public static final field LimitExceeded Lgg/sona/eos/EosResult;
+	public static final field LobbyAggregationFailed Lgg/sona/eos/EosResult;
+	public static final field LobbyDeploymentAtCapacity Lgg/sona/eos/EosResult;
+	public static final field LobbyHostAtCapacity Lgg/sona/eos/EosResult;
+	public static final field LobbyInvalidLock Lgg/sona/eos/EosResult;
+	public static final field LobbyInvalidSession Lgg/sona/eos/EosResult;
+	public static final field LobbyInviteFailed Lgg/sona/eos/EosResult;
+	public static final field LobbyInviteNotFound Lgg/sona/eos/EosResult;
+	public static final field LobbyLobbyAlreadyExists Lgg/sona/eos/EosResult;
+	public static final field LobbyMemberUpdateOnly Lgg/sona/eos/EosResult;
+	public static final field LobbyNoPermission Lgg/sona/eos/EosResult;
+	public static final field LobbyNotAllowed Lgg/sona/eos/EosResult;
+	public static final field LobbyNotOwner Lgg/sona/eos/EosResult;
+	public static final field LobbyPlatformNotAllowed Lgg/sona/eos/EosResult;
+	public static final field LobbyPresenceLobbyExists Lgg/sona/eos/EosResult;
+	public static final field LobbySandboxAtCapacity Lgg/sona/eos/EosResult;
+	public static final field LobbySandboxNotAllowed Lgg/sona/eos/EosResult;
+	public static final field LobbySessionInProgress Lgg/sona/eos/EosResult;
+	public static final field LobbyTooManyInvites Lgg/sona/eos/EosResult;
+	public static final field LobbyTooManyPlayers Lgg/sona/eos/EosResult;
+	public static final field LobbyUpsertNotAllowed Lgg/sona/eos/EosResult;
+	public static final field LobbyVoiceNotEnabled Lgg/sona/eos/EosResult;
+	public static final field MissingFeature Lgg/sona/eos/EosResult;
+	public static final field MissingParametersDeprecated Lgg/sona/eos/EosResult;
+	public static final field MissingPermissions Lgg/sona/eos/EosResult;
+	public static final field MissingRole Lgg/sona/eos/EosResult;
+	public static final field ModsCannotGetManifestLocation Lgg/sona/eos/EosResult;
+	public static final field ModsCouldNotFindOffer Lgg/sona/eos/EosResult;
+	public static final field ModsCriticalError Lgg/sona/eos/EosResult;
+	public static final field ModsInvalidGameInstallInfo Lgg/sona/eos/EosResult;
+	public static final field ModsInvalidIpcResponse Lgg/sona/eos/EosResult;
+	public static final field ModsIpcFailure Lgg/sona/eos/EosResult;
+	public static final field ModsModIsNotInstalled Lgg/sona/eos/EosResult;
+	public static final field ModsModSdkCommandIsEmpty Lgg/sona/eos/EosResult;
+	public static final field ModsModSdkProcessCreationFailed Lgg/sona/eos/EosResult;
+	public static final field ModsModSdkProcessIsAlreadyRunning Lgg/sona/eos/EosResult;
+	public static final field ModsOfferRequestByIdFailure Lgg/sona/eos/EosResult;
+	public static final field ModsOfferRequestByIdInvalidResult Lgg/sona/eos/EosResult;
+	public static final field ModsPurchaseFailure Lgg/sona/eos/EosResult;
+	public static final field ModsToolInternalError Lgg/sona/eos/EosResult;
+	public static final field ModsUnsupportedOs Lgg/sona/eos/EosResult;
+	public static final field ModsUriLaunchFailure Lgg/sona/eos/EosResult;
+	public static final field ModsUserDoesNotOwnTheGame Lgg/sona/eos/EosResult;
+	public static final field NetworkDisconnected Lgg/sona/eos/EosResult;
+	public static final field NoChange Lgg/sona/eos/EosResult;
+	public static final field NoConnection Lgg/sona/eos/EosResult;
+	public static final field NotConfigured Lgg/sona/eos/EosResult;
+	public static final field NotFound Lgg/sona/eos/EosResult;
+	public static final field NotImplemented Lgg/sona/eos/EosResult;
+	public static final field OperationWillRetry Lgg/sona/eos/EosResult;
+	public static final field PartialResult Lgg/sona/eos/EosResult;
+	public static final field PermissionAccountTypeFailure Lgg/sona/eos/EosResult;
+	public static final field PermissionAgeRestrictionFailure Lgg/sona/eos/EosResult;
+	public static final field PermissionChatRestriction Lgg/sona/eos/EosResult;
+	public static final field PermissionOnlinePlayRestricted Lgg/sona/eos/EosResult;
+	public static final field PermissionRequiredPatchAvailable Lgg/sona/eos/EosResult;
+	public static final field PermissionRequiredSystemUpdate Lgg/sona/eos/EosResult;
+	public static final field PermissionUgcRestriction Lgg/sona/eos/EosResult;
+	public static final field PlayerDataStorageDataInvalid Lgg/sona/eos/EosResult;
+	public static final field PlayerDataStorageDataLengthInvalid Lgg/sona/eos/EosResult;
+	public static final field PlayerDataStorageEncryptionKeyNotSet Lgg/sona/eos/EosResult;
+	public static final field PlayerDataStorageFileCorrupted Lgg/sona/eos/EosResult;
+	public static final field PlayerDataStorageFileHandleInvalid Lgg/sona/eos/EosResult;
+	public static final field PlayerDataStorageFileHeaderHasNewerVersion Lgg/sona/eos/EosResult;
+	public static final field PlayerDataStorageFileSizeInvalid Lgg/sona/eos/EosResult;
+	public static final field PlayerDataStorageFileSizeTooLarge Lgg/sona/eos/EosResult;
+	public static final field PlayerDataStorageFilenameInvalid Lgg/sona/eos/EosResult;
+	public static final field PlayerDataStorageFilenameInvalidChars Lgg/sona/eos/EosResult;
+	public static final field PlayerDataStorageFilenameLengthInvalid Lgg/sona/eos/EosResult;
+	public static final field PlayerDataStorageRequestInProgress Lgg/sona/eos/EosResult;
+	public static final field PlayerDataStorageStartIndexInvalid Lgg/sona/eos/EosResult;
+	public static final field PlayerDataStorageUserErrorFromDataCallback Lgg/sona/eos/EosResult;
+	public static final field PlayerDataStorageUserThrottled Lgg/sona/eos/EosResult;
+	public static final field PresenceDataInvalid Lgg/sona/eos/EosResult;
+	public static final field PresenceDataKeyInvalid Lgg/sona/eos/EosResult;
+	public static final field PresenceDataKeyLengthInvalid Lgg/sona/eos/EosResult;
+	public static final field PresenceDataLengthInvalid Lgg/sona/eos/EosResult;
+	public static final field PresenceDataValueInvalid Lgg/sona/eos/EosResult;
+	public static final field PresenceDataValueLengthInvalid Lgg/sona/eos/EosResult;
+	public static final field PresenceRichTextInvalid Lgg/sona/eos/EosResult;
+	public static final field PresenceRichTextLengthInvalid Lgg/sona/eos/EosResult;
+	public static final field PresenceRichTextNotSupported Lgg/sona/eos/EosResult;
+	public static final field PresenceStatusInvalid Lgg/sona/eos/EosResult;
+	public static final field PresenceTemplateIdInvalid Lgg/sona/eos/EosResult;
+	public static final field PresenceTemplateInvalidVariableInput Lgg/sona/eos/EosResult;
+	public static final field PresenceTemplateKeyInvalid Lgg/sona/eos/EosResult;
+	public static final field PresenceTemplateLocalizationServerError Lgg/sona/eos/EosResult;
+	public static final field PresenceTemplateNotFound Lgg/sona/eos/EosResult;
+	public static final field PresenceTemplateNotSupported Lgg/sona/eos/EosResult;
+	public static final field PresenceTemplateTypeInvalid Lgg/sona/eos/EosResult;
+	public static final field PresenceTemplateUnknownError Lgg/sona/eos/EosResult;
+	public static final field PresenceTemplateValueInvalid Lgg/sona/eos/EosResult;
+	public static final field ProgressionSnapshotIdUnavailable Lgg/sona/eos/EosResult;
+	public static final field RequestInProgress Lgg/sona/eos/EosResult;
+	public static final field RtcAllocationFailed Lgg/sona/eos/EosResult;
+	public static final field RtcEmptyRecord Lgg/sona/eos/EosResult;
+	public static final field RtcReconnectionTimegateExpired Lgg/sona/eos/EosResult;
+	public static final field RtcRoomAlreadyExists Lgg/sona/eos/EosResult;
+	public static final field RtcRoomOptionsMismatch Lgg/sona/eos/EosResult;
+	public static final field RtcRoomWasLeft Lgg/sona/eos/EosResult;
+	public static final field RtcShutdownInvoked Lgg/sona/eos/EosResult;
+	public static final field RtcTooManyParticipants Lgg/sona/eos/EosResult;
+	public static final field RtcUserBanned Lgg/sona/eos/EosResult;
+	public static final field RtcUserIsInBlocklist Lgg/sona/eos/EosResult;
+	public static final field RtcUserKicked Lgg/sona/eos/EosResult;
+	public static final field RtcVoiceModerationModeMismatch Lgg/sona/eos/EosResult;
+	public static final field ServiceFailure Lgg/sona/eos/EosResult;
+	public static final field SessionsAggregationFailed Lgg/sona/eos/EosResult;
+	public static final field SessionsDeploymentAtCapacity Lgg/sona/eos/EosResult;
+	public static final field SessionsHostAtCapacity Lgg/sona/eos/EosResult;
+	public static final field SessionsInvalidLock Lgg/sona/eos/EosResult;
+	public static final field SessionsInvalidSession Lgg/sona/eos/EosResult;
+	public static final field SessionsInviteFailed Lgg/sona/eos/EosResult;
+	public static final field SessionsInviteNotFound Lgg/sona/eos/EosResult;
+	public static final field SessionsNoPermission Lgg/sona/eos/EosResult;
+	public static final field SessionsNotAllowed Lgg/sona/eos/EosResult;
+	public static final field SessionsOutOfSync Lgg/sona/eos/EosResult;
+	public static final field SessionsPlayerSanctioned Lgg/sona/eos/EosResult;
+	public static final field SessionsPresenceSessionExists Lgg/sona/eos/EosResult;
+	public static final field SessionsSandboxAtCapacity Lgg/sona/eos/EosResult;
+	public static final field SessionsSandboxNotAllowed Lgg/sona/eos/EosResult;
+	public static final field SessionsSessionAlreadyExists Lgg/sona/eos/EosResult;
+	public static final field SessionsSessionInProgress Lgg/sona/eos/EosResult;
+	public static final field SessionsSessionNotAnonymous Lgg/sona/eos/EosResult;
+	public static final field SessionsTooManyInvites Lgg/sona/eos/EosResult;
+	public static final field SessionsTooManyPlayers Lgg/sona/eos/EosResult;
+	public static final field SessionsUpsertNotAllowed Lgg/sona/eos/EosResult;
+	public static final field Success Lgg/sona/eos/EosResult;
+	public static final field TimedOut Lgg/sona/eos/EosResult;
+	public static final field TitleStorageEncryptionKeyNotSet Lgg/sona/eos/EosResult;
+	public static final field TitleStorageFileCorrupted Lgg/sona/eos/EosResult;
+	public static final field TitleStorageFileHeaderHasNewerVersion Lgg/sona/eos/EosResult;
+	public static final field TitleStorageUserErrorFromDataCallback Lgg/sona/eos/EosResult;
+	public static final field TokenNotAccount Lgg/sona/eos/EosResult;
+	public static final field TooManyRequests Lgg/sona/eos/EosResult;
+	public static final field UiInconsistentVirtualMemoryFunctions Lgg/sona/eos/EosResult;
+	public static final field UiSocialOverlayLoadError Lgg/sona/eos/EosResult;
+	public static final field UnexpectedError Lgg/sona/eos/EosResult;
+	public static final field UnrecognizedResponse Lgg/sona/eos/EosResult;
+	public static final field UserInfoBestDisplayNameIndeterminate Lgg/sona/eos/EosResult;
+	public static final field VersionMismatch Lgg/sona/eos/EosResult;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/EosResult;
+	public static fun values ()[Lgg/sona/eos/EosResult;
+}
+
+public final class gg/sona/eos/EosResult$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/EosResult;
+	public final fun isFailure (Lgg/sona/eos/EosResult;)Z
+	public final fun isSuccess (Lgg/sona/eos/EosResult;)Z
+	public final fun willRetry (Lgg/sona/eos/EosResult;)Z
+}
+
+public final class gg/sona/eos/EosRtcBackgroundMode : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/EosRtcBackgroundMode$Companion;
+	public static final field KeepRoomsAlive Lgg/sona/eos/EosRtcBackgroundMode;
+	public static final field LeaveRooms Lgg/sona/eos/EosRtcBackgroundMode;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/EosRtcBackgroundMode;
+	public static fun values ()[Lgg/sona/eos/EosRtcBackgroundMode;
+}
+
+public final class gg/sona/eos/EosRtcBackgroundMode$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/EosRtcBackgroundMode;
+}
+
+public final class gg/sona/eos/EosRtcOptions : gg/sona/eos/internal/StructWriter {
+	public static final field API_LATEST I
+	public static final field Companion Lgg/sona/eos/EosRtcOptions$Companion;
+	public fun <init> ()V
+	public final fun getBackgroundMode ()Lgg/sona/eos/EosRtcBackgroundMode;
+	public final fun getXAudio29DllPath ()Ljava/lang/String;
+	public final fun setBackgroundMode (Lgg/sona/eos/EosRtcBackgroundMode;)V
+	public final fun setXAudio29DllPath (Ljava/lang/String;)V
+	public fun writeTo (Lgg/sona/eos/internal/foreign/Arena;)Lgg/sona/eos/internal/foreign/MemorySegment;
+}
+
+public final class gg/sona/eos/EosRtcOptions$Companion {
+}
+
+public final class gg/sona/eos/NotificationHandle {
+}
+
+public final class gg/sona/eos/SampleUsage {
+	public static final field INSTANCE Lgg/sona/eos/SampleUsage;
+	public final fun antiCheatClientExample-qZpfKx4 (Lgg/sona/eos/EosPlatform;J)V
+	public final fun antiCheatServerExample-qZpfKx4 (Lgg/sona/eos/EosPlatform;J)V
+	public final fun bootstrapClient (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun p2pExample-HLSQKUc (Lgg/sona/eos/EosPlatform;JJ)V
+	public final fun rtcExample-mlRLOYs (Lgg/sona/eos/EosPlatform;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+}
+
+public final class gg/sona/eos/achievements/AchievementDefinition {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/util/List;)V
+	public final fun getFlavorText ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getLockedDescription ()Ljava/lang/String;
+	public final fun getLockedDisplayName ()Ljava/lang/String;
+	public final fun getLockedIconUrl ()Ljava/lang/String;
+	public final fun getStatThresholds ()Ljava/util/List;
+	public final fun getUnlockedDescription ()Ljava/lang/String;
+	public final fun getUnlockedDisplayName ()Ljava/lang/String;
+	public final fun getUnlockedIconUrl ()Ljava/lang/String;
+	public final fun isHidden ()Z
+}
+
+public final class gg/sona/eos/achievements/AchievementUnlockedInfo {
+	public synthetic fun <init> (JLjava/lang/String;JLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getAchievementId ()Ljava/lang/String;
+	public final fun getUnlockTime ()J
+	public final fun getUserId-bqYAy6Q ()J
+}
+
+public final class gg/sona/eos/achievements/EosAchievements {
+	public static final field Companion Lgg/sona/eos/achievements/EosAchievements$Companion;
+	public static final field UNLOCK_TIME_UNDEFINED J
+	public final fun addNotifyAchievementsUnlocked (Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun copyAchievementDefinitionById (Ljava/lang/String;)Lgg/sona/eos/achievements/AchievementDefinition;
+	public final fun copyAchievementDefinitionByIndex (I)Lgg/sona/eos/achievements/AchievementDefinition;
+	public final fun copyPlayerAchievementByAchievementId-dGAWZEE (JLjava/lang/String;Lgg/sona/eos/common/ProductUserId;)Lgg/sona/eos/achievements/PlayerAchievement;
+	public static synthetic fun copyPlayerAchievementByAchievementId-dGAWZEE$default (Lgg/sona/eos/achievements/EosAchievements;JLjava/lang/String;Lgg/sona/eos/common/ProductUserId;ILjava/lang/Object;)Lgg/sona/eos/achievements/PlayerAchievement;
+	public final fun copyPlayerAchievementByIndex-dGAWZEE (JILgg/sona/eos/common/ProductUserId;)Lgg/sona/eos/achievements/PlayerAchievement;
+	public static synthetic fun copyPlayerAchievementByIndex-dGAWZEE$default (Lgg/sona/eos/achievements/EosAchievements;JILgg/sona/eos/common/ProductUserId;ILjava/lang/Object;)Lgg/sona/eos/achievements/PlayerAchievement;
+	public final fun getAchievementDefinitionCount ()I
+	public final fun getPlayerAchievementCount-pZ5wb2o (J)I
+	public final fun queryDefinitions-U-VWpcI (Lgg/sona/eos/common/ProductUserId;)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun queryDefinitions-U-VWpcI$default (Lgg/sona/eos/achievements/EosAchievements;Lgg/sona/eos/common/ProductUserId;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+	public final fun queryPlayerAchievements-yf-u1BM (JLgg/sona/eos/common/ProductUserId;)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun queryPlayerAchievements-yf-u1BM$default (Lgg/sona/eos/achievements/EosAchievements;JLgg/sona/eos/common/ProductUserId;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+	public final fun removeNotifyAchievementsUnlocked (Lgg/sona/eos/NotificationHandle;)V
+	public final fun unlockAchievements-pPv1uy4 (JLjava/util/List;)Ljava/util/concurrent/CompletableFuture;
+}
+
+public final class gg/sona/eos/achievements/EosAchievements$Companion {
+}
+
+public final class gg/sona/eos/achievements/PlayerAchievement {
+	public fun <init> (Ljava/lang/String;DJLjava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getDisplayName ()Ljava/lang/String;
+	public final fun getFlavorText ()Ljava/lang/String;
+	public final fun getIconUrl ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getProgress ()D
+	public final fun getStatInfo ()Ljava/util/List;
+	public final fun getUnlockTime ()J
+}
+
+public final class gg/sona/eos/achievements/PlayerStatInfo {
+	public fun <init> (Ljava/lang/String;II)V
+	public final fun getCurrentValue ()I
+	public final fun getName ()Ljava/lang/String;
+	public final fun getThresholdValue ()I
+}
+
+public final class gg/sona/eos/achievements/QueryPlayerAchievementsResult {
+	public synthetic fun <init> (Lgg/sona/eos/EosResult;JJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getLocalUserId-bqYAy6Q ()J
+	public final fun getResult ()Lgg/sona/eos/EosResult;
+	public final fun getTargetUserId-bqYAy6Q ()J
+}
+
+public final class gg/sona/eos/achievements/StatThreshold {
+	public fun <init> (Ljava/lang/String;I)V
+	public final fun getName ()Ljava/lang/String;
+	public final fun getThreshold ()I
+}
+
+public final class gg/sona/eos/achievements/UnlockAchievementsResult {
+	public synthetic fun <init> (Lgg/sona/eos/EosResult;JILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getResult ()Lgg/sona/eos/EosResult;
+	public final fun getUnlockedCount ()I
+	public final fun getUserId-bqYAy6Q ()J
+}
+
+public final class gg/sona/eos/anticheat/client/ClientIntegrityViolatedInfo {
+	public fun <init> (Lgg/sona/eos/anticheat/client/EosAntiCheatClientViolationType;Ljava/lang/String;)V
+	public final fun getMessage ()Ljava/lang/String;
+	public final fun getViolationType ()Lgg/sona/eos/anticheat/client/EosAntiCheatClientViolationType;
+}
+
+public final class gg/sona/eos/anticheat/client/EosAntiCheatClient {
+	public static final field Companion Lgg/sona/eos/anticheat/client/EosAntiCheatClient$Companion;
+	public static final field MAX_AUTHENTICATION_TIMEOUT I
+	public static final field MAX_MESSAGE_SIZE I
+	public static final field MIN_AUTHENTICATION_TIMEOUT I
+	public static final field PEER_SELF_RAW J
+	public final fun addExternalIntegrityCatalog (Ljava/lang/String;)Lgg/sona/eos/EosResult;
+	public final fun addNotifyClientIntegrityViolated (Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun addNotifyMessageToPeer (Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun addNotifyMessageToServer (Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun addNotifyPeerActionRequired (Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun addNotifyPeerAuthStatusChanged (Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun beginSession-pPv1uy4 (JLgg/sona/eos/anticheat/client/EosAntiCheatClientMode;)Lgg/sona/eos/EosResult;
+	public final fun endSession ()Lgg/sona/eos/EosResult;
+	public final fun getModuleBuildId-0hXNFcg ()Lkotlin/UInt;
+	public final fun getProtectMessageOutputLength (I)I
+	public final fun protectMessage ([B)Lgg/sona/eos/anticheat/client/ProtectedMessage;
+	public final fun receiveMessageFromPeer-cNwkE4I (J[B)Lgg/sona/eos/EosResult;
+	public final fun receiveMessageFromServer ([B)Lgg/sona/eos/EosResult;
+	public final fun registerPeer-lcRvvdE (JLgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientType;Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientPlatform;ILjava/lang/String;J)Lgg/sona/eos/EosResult;
+	public static synthetic fun registerPeer-lcRvvdE$default (Lgg/sona/eos/anticheat/client/EosAntiCheatClient;JLgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientType;Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientPlatform;ILjava/lang/String;JILjava/lang/Object;)Lgg/sona/eos/EosResult;
+	public final fun removeNotifyClientIntegrityViolated (Lgg/sona/eos/NotificationHandle;)V
+	public final fun removeNotifyMessageToPeer (Lgg/sona/eos/NotificationHandle;)V
+	public final fun removeNotifyMessageToServer (Lgg/sona/eos/NotificationHandle;)V
+	public final fun removeNotifyPeerActionRequired (Lgg/sona/eos/NotificationHandle;)V
+	public final fun removeNotifyPeerAuthStatusChanged (Lgg/sona/eos/NotificationHandle;)V
+	public final fun unprotectMessage ([B)[B
+	public final fun unregisterPeer-mnW1Mg0 (J)Lgg/sona/eos/EosResult;
+}
+
+public final class gg/sona/eos/anticheat/client/EosAntiCheatClient$Companion {
+}
+
+public final class gg/sona/eos/anticheat/client/EosAntiCheatClientMode : java/lang/Enum {
+	public static final field ClientServer Lgg/sona/eos/anticheat/client/EosAntiCheatClientMode;
+	public static final field Companion Lgg/sona/eos/anticheat/client/EosAntiCheatClientMode$Companion;
+	public static final field Invalid Lgg/sona/eos/anticheat/client/EosAntiCheatClientMode;
+	public static final field PeerToPeer Lgg/sona/eos/anticheat/client/EosAntiCheatClientMode;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/anticheat/client/EosAntiCheatClientMode;
+	public static fun values ()[Lgg/sona/eos/anticheat/client/EosAntiCheatClientMode;
+}
+
+public final class gg/sona/eos/anticheat/client/EosAntiCheatClientMode$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/anticheat/client/EosAntiCheatClientMode;
+}
+
+public final class gg/sona/eos/anticheat/client/EosAntiCheatClientViolationType : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/anticheat/client/EosAntiCheatClientViolationType$Companion;
+	public static final field CorruptedMemory Lgg/sona/eos/anticheat/client/EosAntiCheatClientViolationType;
+	public static final field CorruptedNetworkMessageFlow Lgg/sona/eos/anticheat/client/EosAntiCheatClientViolationType;
+	public static final field ForbiddenModuleLoaded Lgg/sona/eos/anticheat/client/EosAntiCheatClientViolationType;
+	public static final field ForbiddenSystemConfiguration Lgg/sona/eos/anticheat/client/EosAntiCheatClientViolationType;
+	public static final field ForbiddenToolDetected Lgg/sona/eos/anticheat/client/EosAntiCheatClientViolationType;
+	public static final field GameFileMismatch Lgg/sona/eos/anticheat/client/EosAntiCheatClientViolationType;
+	public static final field IntegrityCatalogCertificateRevoked Lgg/sona/eos/anticheat/client/EosAntiCheatClientViolationType;
+	public static final field IntegrityCatalogError Lgg/sona/eos/anticheat/client/EosAntiCheatClientViolationType;
+	public static final field IntegrityCatalogMissingMainExecutable Lgg/sona/eos/anticheat/client/EosAntiCheatClientViolationType;
+	public static final field IntegrityCatalogNotFound Lgg/sona/eos/anticheat/client/EosAntiCheatClientViolationType;
+	public static final field InternalAntiCheatViolation Lgg/sona/eos/anticheat/client/EosAntiCheatClientViolationType;
+	public static final field Invalid Lgg/sona/eos/anticheat/client/EosAntiCheatClientViolationType;
+	public static final field RequiredGameFileNotFound Lgg/sona/eos/anticheat/client/EosAntiCheatClientViolationType;
+	public static final field SystemFileUntrusted Lgg/sona/eos/anticheat/client/EosAntiCheatClientViolationType;
+	public static final field UnknownGameFileForbidden Lgg/sona/eos/anticheat/client/EosAntiCheatClientViolationType;
+	public static final field VirtualMachineNotAllowed Lgg/sona/eos/anticheat/client/EosAntiCheatClientViolationType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/anticheat/client/EosAntiCheatClientViolationType;
+	public static fun values ()[Lgg/sona/eos/anticheat/client/EosAntiCheatClientViolationType;
+}
+
+public final class gg/sona/eos/anticheat/client/EosAntiCheatClientViolationType$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/anticheat/client/EosAntiCheatClientViolationType;
+}
+
+public final class gg/sona/eos/anticheat/client/MessageToPeerInfo {
+	public synthetic fun <init> (J[BLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getData ()[B
+	public final fun getPeerHandle-5PFoPPA ()J
+}
+
+public final class gg/sona/eos/anticheat/client/MessageToServerInfo {
+	public fun <init> ([B)V
+	public final fun getData ()[B
+}
+
+public final class gg/sona/eos/anticheat/client/PeerActionRequiredInfo {
+	public synthetic fun <init> (JLgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientAction;Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientActionReason;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getAction ()Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientAction;
+	public final fun getPeerHandle-5PFoPPA ()J
+	public final fun getReasonCode ()Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientActionReason;
+	public final fun getReasonString ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/anticheat/client/PeerAuthStatusChangedInfo {
+	public synthetic fun <init> (JLgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientAuthStatus;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getNewStatus ()Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientAuthStatus;
+	public final fun getPeerHandle-5PFoPPA ()J
+}
+
+public final class gg/sona/eos/anticheat/client/ProtectedMessage {
+	public fun <init> ([B)V
+	public final fun getData ()[B
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon {
+	public static final field INSTANCE Lgg/sona/eos/anticheat/common/EosAntiCheatCommon;
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientAction : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientAction$Companion;
+	public static final field Invalid Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientAction;
+	public static final field RemovePlayer Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientAction;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientAction;
+	public static fun values ()[Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientAction;
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientAction$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientAction;
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientActionReason : java/lang/Enum {
+	public static final field AuthenticationFailed Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientActionReason;
+	public static final field BackendViolation Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientActionReason;
+	public static final field ClientViolation Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientActionReason;
+	public static final field Companion Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientActionReason$Companion;
+	public static final field HeartbeatTimeout Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientActionReason;
+	public static final field InternalError Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientActionReason;
+	public static final field Invalid Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientActionReason;
+	public static final field InvalidMessage Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientActionReason;
+	public static final field NullClient Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientActionReason;
+	public static final field PermanentBanned Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientActionReason;
+	public static final field TemporaryBanned Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientActionReason;
+	public static final field TemporaryCooldown Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientActionReason;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientActionReason;
+	public static fun values ()[Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientActionReason;
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientActionReason$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientActionReason;
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientAuthStatus : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientAuthStatus$Companion;
+	public static final field Invalid Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientAuthStatus;
+	public static final field LocalAuthComplete Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientAuthStatus;
+	public static final field RemoteAuthComplete Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientAuthStatus;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientAuthStatus;
+	public static fun values ()[Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientAuthStatus;
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientAuthStatus$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientAuthStatus;
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientFlags : java/lang/Enum {
+	public static final field Admin Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientFlags;
+	public static final field Companion Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientFlags$Companion;
+	public static final field None Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientFlags;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientFlags;
+	public static fun values ()[Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientFlags;
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientFlags$Companion {
+	public final fun fromValue (I)Ljava/util/Set;
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientHandle {
+	public static final field Companion Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientHandle$Companion;
+	public static final synthetic fun box-impl (J)Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientHandle;
+	public static fun constructor-impl (J)J
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (JLjava/lang/Object;)Z
+	public static final fun equals-impl0 (JJ)Z
+	public final fun getRaw ()J
+	public fun hashCode ()I
+	public static fun hashCode-impl (J)I
+	public static final fun isValid-impl (J)Z
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (J)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()J
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientHandle$Companion {
+	public final fun getInvalid-5PFoPPA ()J
+	public final fun getSELF-5PFoPPA ()J
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientInput : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientInput$Companion;
+	public static final field Gamepad Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientInput;
+	public static final field MouseKeyboard Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientInput;
+	public static final field TouchInput Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientInput;
+	public static final field Unknown Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientInput;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientInput;
+	public static fun values ()[Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientInput;
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientInput$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientInput;
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientPlatform : java/lang/Enum {
+	public static final field Android Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientPlatform;
+	public static final field Companion Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientPlatform$Companion;
+	public static final field Ios Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientPlatform;
+	public static final field Linux Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientPlatform;
+	public static final field Mac Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientPlatform;
+	public static final field Nintendo Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientPlatform;
+	public static final field PlayStation Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientPlatform;
+	public static final field Unknown Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientPlatform;
+	public static final field Windows Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientPlatform;
+	public static final field Xbox Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientPlatform;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientPlatform;
+	public static fun values ()[Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientPlatform;
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientPlatform$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientPlatform;
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientType : java/lang/Enum {
+	public static final field AiBot Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientType;
+	public static final field Companion Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientType$Companion;
+	public static final field ProtectedClient Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientType;
+	public static final field UnprotectedClient Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientType;
+	public static fun values ()[Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientType;
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientType$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientType;
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$EventParamType : java/lang/Enum {
+	public static final field ClientHandle Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$EventParamType;
+	public static final field Companion Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$EventParamType$Companion;
+	public static final field Float Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$EventParamType;
+	public static final field Int32 Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$EventParamType;
+	public static final field Int64 Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$EventParamType;
+	public static final field Invalid Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$EventParamType;
+	public static final field Quat Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$EventParamType;
+	public static final field String Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$EventParamType;
+	public static final field UInt32 Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$EventParamType;
+	public static final field UInt64 Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$EventParamType;
+	public static final field Vector3f Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$EventParamType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$EventParamType;
+	public static fun values ()[Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$EventParamType;
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$EventParamType$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$EventParamType;
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$EventType : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$EventType$Companion;
+	public static final field GameEvent Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$EventType;
+	public static final field Invalid Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$EventType;
+	public static final field PlayerEvent Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$EventType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$EventType;
+	public static fun values ()[Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$EventType;
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$EventType$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$EventType;
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$GameRoundCompetitionType : java/lang/Enum {
+	public static final field Casual Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$GameRoundCompetitionType;
+	public static final field Companion Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$GameRoundCompetitionType$Companion;
+	public static final field Competitive Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$GameRoundCompetitionType;
+	public static final field None Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$GameRoundCompetitionType;
+	public static final field Ranked Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$GameRoundCompetitionType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$GameRoundCompetitionType;
+	public static fun values ()[Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$GameRoundCompetitionType;
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$GameRoundCompetitionType$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$GameRoundCompetitionType;
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerMovementState : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerMovementState$Companion;
+	public static final field Crouching Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerMovementState;
+	public static final field Falling Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerMovementState;
+	public static final field Flying Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerMovementState;
+	public static final field Mounted Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerMovementState;
+	public static final field None Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerMovementState;
+	public static final field OnLadder Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerMovementState;
+	public static final field Prone Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerMovementState;
+	public static final field Swimming Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerMovementState;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerMovementState;
+	public static fun values ()[Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerMovementState;
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerMovementState$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerMovementState;
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageResult : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageResult$Companion;
+	public static final field DownedToEliminated Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageResult;
+	public static final field None Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageResult;
+	public static final field NormalToDowned Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageResult;
+	public static final field NormalToEliminated Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageResult;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageResult;
+	public static fun values ()[Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageResult;
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageResult$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageResult;
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageSource : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageSource$Companion;
+	public static final field NonPlayerCharacter Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageSource;
+	public static final field None Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageSource;
+	public static final field Player Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageSource;
+	public static final field World Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageSource;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageSource;
+	public static fun values ()[Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageSource;
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageSource$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageSource;
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageType : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageType$Companion;
+	public static final field DamageOverTime Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageType;
+	public static final field None Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageType;
+	public static final field PointDamage Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageType;
+	public static final field RadialDamage Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageType;
+	public static fun values ()[Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageType;
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageType$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageType;
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$Quat {
+	public fun <init> (FFFF)V
+	public final fun getW ()F
+	public final fun getX ()F
+	public final fun getY ()F
+	public final fun getZ ()F
+}
+
+public final class gg/sona/eos/anticheat/common/EosAntiCheatCommon$Vec3f {
+	public fun <init> (FFF)V
+	public final fun getX ()F
+	public final fun getY ()F
+	public final fun getZ ()F
+}
+
+public final class gg/sona/eos/anticheat/server/ClientActionRequiredInfo {
+	public synthetic fun <init> (JLgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientAction;Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientActionReason;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getAction ()Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientAction;
+	public final fun getClientHandle-5PFoPPA ()J
+	public final fun getReasonCode ()Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientActionReason;
+	public final fun getReasonString ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/anticheat/server/ClientAuthStatusChangedInfo {
+	public synthetic fun <init> (JLgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientAuthStatus;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getClientHandle-5PFoPPA ()J
+	public final fun getNewStatus ()Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientAuthStatus;
+}
+
+public final class gg/sona/eos/anticheat/server/EosAntiCheatServer {
+	public static final field Companion Lgg/sona/eos/anticheat/server/EosAntiCheatServer$Companion;
+	public static final field MAX_MESSAGE_SIZE I
+	public static final field MAX_REGISTER_TIMEOUT I
+	public static final field MIN_REGISTER_TIMEOUT I
+	public final fun addNotifyClientActionRequired (Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun addNotifyClientAuthStatusChanged (Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun addNotifyMessageToClient (Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun beginSession-585whG8 (ILjava/lang/String;ZLgg/sona/eos/common/ProductUserId;)Lgg/sona/eos/EosResult;
+	public static synthetic fun beginSession-585whG8$default (Lgg/sona/eos/anticheat/server/EosAntiCheatServer;ILjava/lang/String;ZLgg/sona/eos/common/ProductUserId;ILjava/lang/Object;)Lgg/sona/eos/EosResult;
+	public final fun endSession ()Lgg/sona/eos/EosResult;
+	public final fun getProtectMessageOutputLength (I)I
+	public final fun logEvent-J5uYebE (JILjava/util/List;)Lgg/sona/eos/EosResult;
+	public final fun logGameRoundEnd-WZ4Q5Ns (I)Lgg/sona/eos/EosResult;
+	public static synthetic fun logGameRoundEnd-WZ4Q5Ns$default (Lgg/sona/eos/anticheat/server/EosAntiCheatServer;IILjava/lang/Object;)Lgg/sona/eos/EosResult;
+	public final fun logGameRoundStart-dZZXe8Y (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILgg/sona/eos/anticheat/common/EosAntiCheatCommon$GameRoundCompetitionType;)Lgg/sona/eos/EosResult;
+	public static synthetic fun logGameRoundStart-dZZXe8Y$default (Lgg/sona/eos/anticheat/server/EosAntiCheatServer;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILgg/sona/eos/anticheat/common/EosAntiCheatCommon$GameRoundCompetitionType;ILjava/lang/Object;)Lgg/sona/eos/EosResult;
+	public final fun logPlayerDespawn-mnW1Mg0 (J)Lgg/sona/eos/EosResult;
+	public final fun logPlayerRevive-lWA_rdE (JJ)Lgg/sona/eos/EosResult;
+	public final fun logPlayerSpawn-f-wd0v4 (JII)Lgg/sona/eos/EosResult;
+	public static synthetic fun logPlayerSpawn-f-wd0v4$default (Lgg/sona/eos/anticheat/server/EosAntiCheatServer;JIIILjava/lang/Object;)Lgg/sona/eos/EosResult;
+	public final fun logPlayerTakeDamage-7CVDguA (JLgg/sona/eos/anticheat/common/EosAntiCheatCommon$Vec3f;Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$Quat;JLgg/sona/eos/anticheat/common/EosAntiCheatCommon$Vec3f;Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$Quat;ZZZFFLgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageSource;Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageType;Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageResult;Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$Vec3f;Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$Vec3f;)Lgg/sona/eos/EosResult;
+	public static synthetic fun logPlayerTakeDamage-7CVDguA$default (Lgg/sona/eos/anticheat/server/EosAntiCheatServer;JLgg/sona/eos/anticheat/common/EosAntiCheatCommon$Vec3f;Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$Quat;JLgg/sona/eos/anticheat/common/EosAntiCheatCommon$Vec3f;Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$Quat;ZZZFFLgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageSource;Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageType;Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerTakeDamageResult;Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$Vec3f;Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$Vec3f;ILjava/lang/Object;)Lgg/sona/eos/EosResult;
+	public final fun logPlayerTick-_xE8Izg (JLgg/sona/eos/anticheat/common/EosAntiCheatCommon$Vec3f;Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$Quat;ZFLgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerMovementState;Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$Vec3f;)Lgg/sona/eos/EosResult;
+	public static synthetic fun logPlayerTick-_xE8Izg$default (Lgg/sona/eos/anticheat/server/EosAntiCheatServer;JLgg/sona/eos/anticheat/common/EosAntiCheatCommon$Vec3f;Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$Quat;ZFLgg/sona/eos/anticheat/common/EosAntiCheatCommon$PlayerMovementState;Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$Vec3f;ILjava/lang/Object;)Lgg/sona/eos/EosResult;
+	public final fun logPlayerUseAbility-ABg-yMo (JIII)Lgg/sona/eos/EosResult;
+	public static synthetic fun logPlayerUseAbility-ABg-yMo$default (Lgg/sona/eos/anticheat/server/EosAntiCheatServer;JIIIILjava/lang/Object;)Lgg/sona/eos/EosResult;
+	public final fun logPlayerUseWeapon-ObE-FKQ (JLgg/sona/eos/anticheat/common/EosAntiCheatCommon$Vec3f;Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$Quat;ZZLjava/lang/String;)Lgg/sona/eos/EosResult;
+	public final fun protectMessage-cNwkE4I (J[B)[B
+	public final fun receiveMessageFromClient-cNwkE4I (J[B)Lgg/sona/eos/EosResult;
+	public final fun registerClient-qfgcn6A (JLgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientType;Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientPlatform;Ljava/lang/String;J)Lgg/sona/eos/EosResult;
+	public static synthetic fun registerClient-qfgcn6A$default (Lgg/sona/eos/anticheat/server/EosAntiCheatServer;JLgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientType;Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientPlatform;Ljava/lang/String;JILjava/lang/Object;)Lgg/sona/eos/EosResult;
+	public final fun registerEvent-SGjrQA4 (ILjava/lang/String;Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$EventType;Ljava/util/List;)Lgg/sona/eos/EosResult;
+	public final fun removeNotifyClientActionRequired (Lgg/sona/eos/NotificationHandle;)V
+	public final fun removeNotifyClientAuthStatusChanged (Lgg/sona/eos/NotificationHandle;)V
+	public final fun removeNotifyMessageToClient (Lgg/sona/eos/NotificationHandle;)V
+	public final fun setClientDetails-xOkdw3w (JLjava/util/Set;Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientInput;)Lgg/sona/eos/EosResult;
+	public static synthetic fun setClientDetails-xOkdw3w$default (Lgg/sona/eos/anticheat/server/EosAntiCheatServer;JLjava/util/Set;Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$ClientInput;ILjava/lang/Object;)Lgg/sona/eos/EosResult;
+	public final fun setClientNetworkState-cNwkE4I (JZ)Lgg/sona/eos/EosResult;
+	public final fun setGameSessionId (Ljava/lang/String;)Lgg/sona/eos/EosResult;
+	public final fun unprotectMessage-cNwkE4I (J[B)[B
+	public final fun unregisterClient-mnW1Mg0 (J)Lgg/sona/eos/EosResult;
+}
+
+public final class gg/sona/eos/anticheat/server/EosAntiCheatServer$Companion {
+}
+
+public final class gg/sona/eos/anticheat/server/EventParamDef {
+	public fun <init> (Ljava/lang/String;Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$EventParamType;)V
+	public final fun getName ()Ljava/lang/String;
+	public final fun getType ()Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$EventParamType;
+}
+
+public abstract class gg/sona/eos/anticheat/server/EventParamPair {
+	public synthetic fun <init> (Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$EventParamType;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getType ()Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$EventParamType;
+}
+
+public final class gg/sona/eos/anticheat/server/EventParamPair$ClientHandleValue : gg/sona/eos/anticheat/server/EventParamPair {
+	public synthetic fun <init> (JLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getValue-5PFoPPA ()J
+}
+
+public final class gg/sona/eos/anticheat/server/EventParamPair$FloatValue : gg/sona/eos/anticheat/server/EventParamPair {
+	public fun <init> (F)V
+	public final fun getValue ()F
+}
+
+public final class gg/sona/eos/anticheat/server/EventParamPair$Int32Value : gg/sona/eos/anticheat/server/EventParamPair {
+	public fun <init> (I)V
+	public final fun getValue ()I
+}
+
+public final class gg/sona/eos/anticheat/server/EventParamPair$Int64Value : gg/sona/eos/anticheat/server/EventParamPair {
+	public fun <init> (J)V
+	public final fun getValue ()J
+}
+
+public final class gg/sona/eos/anticheat/server/EventParamPair$QuatValue : gg/sona/eos/anticheat/server/EventParamPair {
+	public fun <init> (Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$Quat;)V
+	public final fun getValue ()Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$Quat;
+}
+
+public final class gg/sona/eos/anticheat/server/EventParamPair$StringValue : gg/sona/eos/anticheat/server/EventParamPair {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun getValue ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/anticheat/server/EventParamPair$UInt32Value : gg/sona/eos/anticheat/server/EventParamPair {
+	public synthetic fun <init> (ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getValue-pVg5ArA ()I
+}
+
+public final class gg/sona/eos/anticheat/server/EventParamPair$UInt64Value : gg/sona/eos/anticheat/server/EventParamPair {
+	public synthetic fun <init> (JLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getValue-s-VKNKU ()J
+}
+
+public final class gg/sona/eos/anticheat/server/EventParamPair$Vector3fValue : gg/sona/eos/anticheat/server/EventParamPair {
+	public fun <init> (Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$Vec3f;)V
+	public final fun getValue ()Lgg/sona/eos/anticheat/common/EosAntiCheatCommon$Vec3f;
+}
+
+public final class gg/sona/eos/anticheat/server/MessageToClientInfo {
+	public synthetic fun <init> (J[BLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getClientHandle-5PFoPPA ()J
+	public final fun getData ()[B
+}
+
+public final class gg/sona/eos/auth/EosAuth {
+	public final fun addNotifyLoginStatusChanged (Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun getLoggedInAccountByIndex-fiinUSk (I)J
+	public final fun getLoggedInAccountsCount ()I
+	public final fun getLoginStatus-5lOE03A (J)Lgg/sona/eos/common/EosLoginStatus;
+	public final fun login (Lgg/sona/eos/auth/EosAuthCredentialType;Ljava/lang/String;Ljava/lang/String;Lgg/sona/eos/common/EosExternalCredentialType;Ljava/util/Set;J)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun login$default (Lgg/sona/eos/auth/EosAuth;Lgg/sona/eos/auth/EosAuthCredentialType;Ljava/lang/String;Ljava/lang/String;Lgg/sona/eos/common/EosExternalCredentialType;Ljava/util/Set;JILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+	public final fun logout-5lOE03A (J)Ljava/util/concurrent/CompletableFuture;
+	public final fun removeNotifyLoginStatusChanged (Lgg/sona/eos/NotificationHandle;)V
+}
+
+public final class gg/sona/eos/auth/EosAuthCredentialType : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/auth/EosAuthCredentialType$Companion;
+	public static final field Developer Lgg/sona/eos/auth/EosAuthCredentialType;
+	public static final field ExternalAuth Lgg/sona/eos/auth/EosAuthCredentialType;
+	public static final field NoUser Lgg/sona/eos/auth/EosAuthCredentialType;
+	public static final field RefreshToken Lgg/sona/eos/auth/EosAuthCredentialType;
+	public static final field UserLogin Lgg/sona/eos/auth/EosAuthCredentialType;
+	public static final field UserPassword Lgg/sona/eos/auth/EosAuthCredentialType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/auth/EosAuthCredentialType;
+	public static fun values ()[Lgg/sona/eos/auth/EosAuthCredentialType;
+}
+
+public final class gg/sona/eos/auth/EosAuthCredentialType$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/auth/EosAuthCredentialType;
+}
+
+public final class gg/sona/eos/auth/EosAuthScopeFlags : java/lang/Enum {
+	public static final field BasicProfile Lgg/sona/eos/auth/EosAuthScopeFlags;
+	public static final field Companion Lgg/sona/eos/auth/EosAuthScopeFlags$Companion;
+	public static final field FriendsList Lgg/sona/eos/auth/EosAuthScopeFlags;
+	public static final field FriendsManagement Lgg/sona/eos/auth/EosAuthScopeFlags;
+	public static final field NoFlags Lgg/sona/eos/auth/EosAuthScopeFlags;
+	public static final field Presence Lgg/sona/eos/auth/EosAuthScopeFlags;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/auth/EosAuthScopeFlags;
+	public static fun values ()[Lgg/sona/eos/auth/EosAuthScopeFlags;
+}
+
+public final class gg/sona/eos/auth/EosAuthScopeFlags$Companion {
+	public final fun fromValue (I)Ljava/util/Set;
+}
+
+public final class gg/sona/eos/auth/LoginResult {
+	public synthetic fun <init> (Lgg/sona/eos/EosResult;JLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getLocalUserId-e3tKAQM ()J
+	public final fun getResult ()Lgg/sona/eos/EosResult;
+}
+
+public final class gg/sona/eos/auth/LoginStatusChangedInfo {
+	public synthetic fun <init> (JLgg/sona/eos/common/EosLoginStatus;Lgg/sona/eos/common/EosLoginStatus;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getCurrentStatus ()Lgg/sona/eos/common/EosLoginStatus;
+	public final fun getLocalUserId-e3tKAQM ()J
+	public final fun getPreviousStatus ()Lgg/sona/eos/common/EosLoginStatus;
+}
+
+public final class gg/sona/eos/common/ContinuanceToken {
+	public static final synthetic fun box-impl (J)Lgg/sona/eos/common/ContinuanceToken;
+	public static fun constructor-impl (J)J
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (JLjava/lang/Object;)Z
+	public static final fun equals-impl0 (JJ)Z
+	public final fun getRaw ()J
+	public fun hashCode ()I
+	public static fun hashCode-impl (J)I
+	public static final fun isValid-impl (J)Z
+	public static final fun stringify-impl (J)Ljava/lang/String;
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (J)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()J
+}
+
+public final class gg/sona/eos/common/EosApplicationStatus : java/lang/Enum {
+	public static final field BackgroundConstrained Lgg/sona/eos/common/EosApplicationStatus;
+	public static final field BackgroundSuspended Lgg/sona/eos/common/EosApplicationStatus;
+	public static final field BackgroundUnconstrained Lgg/sona/eos/common/EosApplicationStatus;
+	public static final field Companion Lgg/sona/eos/common/EosApplicationStatus$Companion;
+	public static final field Foreground Lgg/sona/eos/common/EosApplicationStatus;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/common/EosApplicationStatus;
+	public static fun values ()[Lgg/sona/eos/common/EosApplicationStatus;
+}
+
+public final class gg/sona/eos/common/EosApplicationStatus$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/common/EosApplicationStatus;
+}
+
+public final class gg/sona/eos/common/EosAttributeType : java/lang/Enum {
+	public static final field Boolean Lgg/sona/eos/common/EosAttributeType;
+	public static final field Companion Lgg/sona/eos/common/EosAttributeType$Companion;
+	public static final field Double Lgg/sona/eos/common/EosAttributeType;
+	public static final field Int64 Lgg/sona/eos/common/EosAttributeType;
+	public static final field String Lgg/sona/eos/common/EosAttributeType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/common/EosAttributeType;
+	public static fun values ()[Lgg/sona/eos/common/EosAttributeType;
+}
+
+public final class gg/sona/eos/common/EosAttributeType$Companion {
+}
+
+public final class gg/sona/eos/common/EosComparisonOp : java/lang/Enum {
+	public static final field AnyOf Lgg/sona/eos/common/EosComparisonOp;
+	public static final field Companion Lgg/sona/eos/common/EosComparisonOp$Companion;
+	public static final field Contains Lgg/sona/eos/common/EosComparisonOp;
+	public static final field Equal Lgg/sona/eos/common/EosComparisonOp;
+	public static final field GreaterThan Lgg/sona/eos/common/EosComparisonOp;
+	public static final field GreaterThanOrEqual Lgg/sona/eos/common/EosComparisonOp;
+	public static final field LessThan Lgg/sona/eos/common/EosComparisonOp;
+	public static final field LessThanOrEqual Lgg/sona/eos/common/EosComparisonOp;
+	public static final field MatchesRegex Lgg/sona/eos/common/EosComparisonOp;
+	public static final field Nearest Lgg/sona/eos/common/EosComparisonOp;
+	public static final field NotAnyOf Lgg/sona/eos/common/EosComparisonOp;
+	public static final field NotEqual Lgg/sona/eos/common/EosComparisonOp;
+	public static final field NotOneOf Lgg/sona/eos/common/EosComparisonOp;
+	public static final field OneOf Lgg/sona/eos/common/EosComparisonOp;
+	public static final field Size Lgg/sona/eos/common/EosComparisonOp;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/common/EosComparisonOp;
+	public static fun values ()[Lgg/sona/eos/common/EosComparisonOp;
+}
+
+public final class gg/sona/eos/common/EosComparisonOp$Companion {
+}
+
+public final class gg/sona/eos/common/EosDesktopCrossplayStatus : java/lang/Enum {
+	public static final field ApplicationNotBootstrapped Lgg/sona/eos/common/EosDesktopCrossplayStatus;
+	public static final field Companion Lgg/sona/eos/common/EosDesktopCrossplayStatus$Companion;
+	public static final field Ok Lgg/sona/eos/common/EosDesktopCrossplayStatus;
+	public static final field OverlayDisabled Lgg/sona/eos/common/EosDesktopCrossplayStatus;
+	public static final field OverlayLoadFailed Lgg/sona/eos/common/EosDesktopCrossplayStatus;
+	public static final field OverlayNotInstalled Lgg/sona/eos/common/EosDesktopCrossplayStatus;
+	public static final field OverlayTrustCheckFailed Lgg/sona/eos/common/EosDesktopCrossplayStatus;
+	public static final field ServiceNotInstalled Lgg/sona/eos/common/EosDesktopCrossplayStatus;
+	public static final field ServiceNotRunning Lgg/sona/eos/common/EosDesktopCrossplayStatus;
+	public static final field ServiceStartFailed Lgg/sona/eos/common/EosDesktopCrossplayStatus;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/common/EosDesktopCrossplayStatus;
+	public static fun values ()[Lgg/sona/eos/common/EosDesktopCrossplayStatus;
+}
+
+public final class gg/sona/eos/common/EosDesktopCrossplayStatus$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/common/EosDesktopCrossplayStatus;
+}
+
+public final class gg/sona/eos/common/EosExternalAccountType : java/lang/Enum {
+	public static final field Amazon Lgg/sona/eos/common/EosExternalAccountType;
+	public static final field Apple Lgg/sona/eos/common/EosExternalAccountType;
+	public static final field Companion Lgg/sona/eos/common/EosExternalAccountType$Companion;
+	public static final field Discord Lgg/sona/eos/common/EosExternalAccountType;
+	public static final field Epic Lgg/sona/eos/common/EosExternalAccountType;
+	public static final field Gog Lgg/sona/eos/common/EosExternalAccountType;
+	public static final field Google Lgg/sona/eos/common/EosExternalAccountType;
+	public static final field Itchio Lgg/sona/eos/common/EosExternalAccountType;
+	public static final field Nintendo Lgg/sona/eos/common/EosExternalAccountType;
+	public static final field Oculus Lgg/sona/eos/common/EosExternalAccountType;
+	public static final field OpenId Lgg/sona/eos/common/EosExternalAccountType;
+	public static final field Psn Lgg/sona/eos/common/EosExternalAccountType;
+	public static final field Steam Lgg/sona/eos/common/EosExternalAccountType;
+	public static final field Uplay Lgg/sona/eos/common/EosExternalAccountType;
+	public static final field Viveport Lgg/sona/eos/common/EosExternalAccountType;
+	public static final field XboxLive Lgg/sona/eos/common/EosExternalAccountType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/common/EosExternalAccountType;
+	public static fun values ()[Lgg/sona/eos/common/EosExternalAccountType;
+}
+
+public final class gg/sona/eos/common/EosExternalAccountType$Companion {
+}
+
+public final class gg/sona/eos/common/EosExternalCredentialType : java/lang/Enum {
+	public static final field AmazonAccessToken Lgg/sona/eos/common/EosExternalCredentialType;
+	public static final field AppleIdToken Lgg/sona/eos/common/EosExternalCredentialType;
+	public static final field Companion Lgg/sona/eos/common/EosExternalCredentialType$Companion;
+	public static final field DeviceIdAccessToken Lgg/sona/eos/common/EosExternalCredentialType;
+	public static final field DiscordAccessToken Lgg/sona/eos/common/EosExternalCredentialType;
+	public static final field Epic Lgg/sona/eos/common/EosExternalCredentialType;
+	public static final field EpicIdToken Lgg/sona/eos/common/EosExternalCredentialType;
+	public static final field GogSessionTicket Lgg/sona/eos/common/EosExternalCredentialType;
+	public static final field GoogleIdToken Lgg/sona/eos/common/EosExternalCredentialType;
+	public static final field ItchioJwt Lgg/sona/eos/common/EosExternalCredentialType;
+	public static final field ItchioKey Lgg/sona/eos/common/EosExternalCredentialType;
+	public static final field NintendoIdToken Lgg/sona/eos/common/EosExternalCredentialType;
+	public static final field NintendoNsaIdToken Lgg/sona/eos/common/EosExternalCredentialType;
+	public static final field OculusUserIdNonce Lgg/sona/eos/common/EosExternalCredentialType;
+	public static final field OpenIdAccessToken Lgg/sona/eos/common/EosExternalCredentialType;
+	public static final field PsnIdToken Lgg/sona/eos/common/EosExternalCredentialType;
+	public static final field SteamAppTicket Lgg/sona/eos/common/EosExternalCredentialType;
+	public static final field SteamSessionTicket Lgg/sona/eos/common/EosExternalCredentialType;
+	public static final field UplayAccessToken Lgg/sona/eos/common/EosExternalCredentialType;
+	public static final field ViveportUserToken Lgg/sona/eos/common/EosExternalCredentialType;
+	public static final field XboxXstsToken Lgg/sona/eos/common/EosExternalCredentialType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/common/EosExternalCredentialType;
+	public static fun values ()[Lgg/sona/eos/common/EosExternalCredentialType;
+}
+
+public final class gg/sona/eos/common/EosExternalCredentialType$Companion {
+}
+
+public final class gg/sona/eos/common/EosLoginStatus : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/common/EosLoginStatus$Companion;
+	public static final field LoggedIn Lgg/sona/eos/common/EosLoginStatus;
+	public static final field NotLoggedIn Lgg/sona/eos/common/EosLoginStatus;
+	public static final field UsingLocalProfile Lgg/sona/eos/common/EosLoginStatus;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/common/EosLoginStatus;
+	public static fun values ()[Lgg/sona/eos/common/EosLoginStatus;
+}
+
+public final class gg/sona/eos/common/EosLoginStatus$Companion {
+}
+
+public final class gg/sona/eos/common/EosNetworkStatus : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/common/EosNetworkStatus$Companion;
+	public static final field Disabled Lgg/sona/eos/common/EosNetworkStatus;
+	public static final field Offline Lgg/sona/eos/common/EosNetworkStatus;
+	public static final field Online Lgg/sona/eos/common/EosNetworkStatus;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/common/EosNetworkStatus;
+	public static fun values ()[Lgg/sona/eos/common/EosNetworkStatus;
+}
+
+public final class gg/sona/eos/common/EosNetworkStatus$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/common/EosNetworkStatus;
+}
+
+public final class gg/sona/eos/common/EosOnlinePlatform : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/common/EosOnlinePlatform$Companion;
+	public static final field Epic Lgg/sona/eos/common/EosOnlinePlatform;
+	public static final field Nintendo Lgg/sona/eos/common/EosOnlinePlatform;
+	public static final field Psn Lgg/sona/eos/common/EosOnlinePlatform;
+	public static final field Steam Lgg/sona/eos/common/EosOnlinePlatform;
+	public static final field Unknown Lgg/sona/eos/common/EosOnlinePlatform;
+	public static final field XboxLive Lgg/sona/eos/common/EosOnlinePlatform;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/common/EosOnlinePlatform;
+	public static fun values ()[Lgg/sona/eos/common/EosOnlinePlatform;
+}
+
+public final class gg/sona/eos/common/EosOnlinePlatform$Companion {
+}
+
+public final class gg/sona/eos/common/EpicAccountId {
+	public static final field Companion Lgg/sona/eos/common/EpicAccountId$Companion;
+	public static final synthetic fun box-impl (J)Lgg/sona/eos/common/EpicAccountId;
+	public static fun constructor-impl (J)J
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (JLjava/lang/Object;)Z
+	public static final fun equals-impl0 (JJ)Z
+	public final fun getRaw ()J
+	public fun hashCode ()I
+	public static fun hashCode-impl (J)I
+	public static final fun isValid-impl (J)Z
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (J)Ljava/lang/String;
+	public static final fun toStringValue-impl (J)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()J
+}
+
+public final class gg/sona/eos/common/EpicAccountId$Companion {
+	public final fun fromString-fiinUSk (Ljava/lang/String;)J
+	public final fun getInvalid-e3tKAQM ()J
+}
+
+public final class gg/sona/eos/common/ProductUserId {
+	public static final field Companion Lgg/sona/eos/common/ProductUserId$Companion;
+	public static final synthetic fun box-impl (J)Lgg/sona/eos/common/ProductUserId;
+	public static fun constructor-impl (J)J
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (JLjava/lang/Object;)Z
+	public static final fun equals-impl0 (JJ)Z
+	public final fun getRaw ()J
+	public fun hashCode ()I
+	public static fun hashCode-impl (J)I
+	public static final fun isValid-impl (J)Z
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (J)Ljava/lang/String;
+	public static final fun toStringValue-impl (J)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()J
+}
+
+public final class gg/sona/eos/common/ProductUserId$Companion {
+	public final fun fromString-M9-hCBE (Ljava/lang/String;)J
+	public final fun getInvalid-bqYAy6Q ()J
+}
+
+public final class gg/sona/eos/connect/EosConnect {
+	public final fun addNotifyLoginStatusChanged (Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun createDeviceId ()Ljava/util/concurrent/CompletableFuture;
+	public final fun createUser-30uPE1M (J)Ljava/util/concurrent/CompletableFuture;
+	public final fun deleteDeviceId ()Ljava/util/concurrent/CompletableFuture;
+	public final fun getLoggedInUserByIndex-M9-hCBE (I)J
+	public final fun getLoggedInUsersCount ()I
+	public final fun getLoginStatus-pZ5wb2o (J)Lgg/sona/eos/common/EosLoginStatus;
+	public final fun linkAccount-sj1tqxE (JJ)Ljava/util/concurrent/CompletableFuture;
+	public final fun login (Lgg/sona/eos/common/EosExternalCredentialType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun login$default (Lgg/sona/eos/connect/EosConnect;Lgg/sona/eos/common/EosExternalCredentialType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+	public final fun logout-pZ5wb2o (J)Ljava/util/concurrent/CompletableFuture;
+	public final fun removeNotifyLoginStatusChanged (Lgg/sona/eos/NotificationHandle;)V
+}
+
+public final class gg/sona/eos/connect/LoginResult {
+	public synthetic fun <init> (Lgg/sona/eos/EosResult;JJILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lgg/sona/eos/EosResult;JJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getContinuanceToken--vAAM-4 ()J
+	public final fun getLocalUserId-bqYAy6Q ()J
+	public final fun getResult ()Lgg/sona/eos/EosResult;
+}
+
+public final class gg/sona/eos/connect/LoginStatusChangedInfo {
+	public synthetic fun <init> (JLgg/sona/eos/common/EosLoginStatus;Lgg/sona/eos/common/EosLoginStatus;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getCurrentStatus ()Lgg/sona/eos/common/EosLoginStatus;
+	public final fun getLocalUserId-bqYAy6Q ()J
+	public final fun getPreviousStatus ()Lgg/sona/eos/common/EosLoginStatus;
+}
+
+public final class gg/sona/eos/custominvites/CustomInviteAcceptedInfo {
+	public synthetic fun <init> (Ljava/lang/String;JLjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getFromUserId-bqYAy6Q ()J
+	public final fun getInviteId ()Ljava/lang/String;
+	public final fun getPayload ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/custominvites/CustomInviteReceivedInfo {
+	public synthetic fun <init> (Ljava/lang/String;JLjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getFromUserId-bqYAy6Q ()J
+	public final fun getInviteId ()Ljava/lang/String;
+	public final fun getPayload ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/custominvites/CustomInviteRejectedInfo {
+	public synthetic fun <init> (Ljava/lang/String;JLjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getFromUserId-bqYAy6Q ()J
+	public final fun getInviteId ()Ljava/lang/String;
+	public final fun getPayload ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/custominvites/EosCustomInviteProcessingResult : java/lang/Enum {
+	public static final field Accepted Lgg/sona/eos/custominvites/EosCustomInviteProcessingResult;
+	public static final field Companion Lgg/sona/eos/custominvites/EosCustomInviteProcessingResult$Companion;
+	public static final field Deferred Lgg/sona/eos/custominvites/EosCustomInviteProcessingResult;
+	public static final field UnhandledError Lgg/sona/eos/custominvites/EosCustomInviteProcessingResult;
+	public static final field Unknown Lgg/sona/eos/custominvites/EosCustomInviteProcessingResult;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/custominvites/EosCustomInviteProcessingResult;
+	public static fun values ()[Lgg/sona/eos/custominvites/EosCustomInviteProcessingResult;
+}
+
+public final class gg/sona/eos/custominvites/EosCustomInviteProcessingResult$Companion {
+}
+
+public final class gg/sona/eos/custominvites/EosCustomInvites {
+	public final fun addNotifyCustomInviteAccepted (Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun addNotifyCustomInviteReceived (Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun addNotifyCustomInviteRejected (Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun finalizeInvite-s3Mbdwk (JLjava/lang/String;Lgg/sona/eos/custominvites/EosCustomInviteProcessingResult;)Lgg/sona/eos/EosResult;
+	public final fun removeNotifyCustomInviteAccepted (Lgg/sona/eos/NotificationHandle;)V
+	public final fun removeNotifyCustomInviteReceived (Lgg/sona/eos/NotificationHandle;)V
+	public final fun removeNotifyCustomInviteRejected (Lgg/sona/eos/NotificationHandle;)V
+	public final fun sendCustomInvite-pPv1uy4 (JLjava/util/List;)Ljava/util/concurrent/CompletableFuture;
+	public final fun setCustomInvite-pPv1uy4 (JLjava/lang/String;)Lgg/sona/eos/EosResult;
+}
+
+public final class gg/sona/eos/ecom/CheckoutEntry {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun getOfferId ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/ecom/CheckoutResult {
+	public synthetic fun <init> (Lgg/sona/eos/EosResult;JLjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getLocalUserId-e3tKAQM ()J
+	public final fun getResult ()Lgg/sona/eos/EosResult;
+	public final fun getTransactionId ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/ecom/EcomCatalogOffer {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIJJIJZZI)V
+	public final fun getAvailableForEntitlement ()Z
+	public final fun getAvailableForPurchase ()Z
+	public final fun getCurrencyCode ()Ljava/lang/String;
+	public final fun getCurrentPrice64 ()J
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getDiscountPercent ()I
+	public final fun getExpirationDate ()J
+	public final fun getId ()Ljava/lang/String;
+	public final fun getItemCount ()I
+	public final fun getLongDescription ()Ljava/lang/String;
+	public final fun getNumericPrice ()I
+	public final fun getOriginalNumericPrice ()I
+	public final fun getOriginalPrice64 ()J
+	public final fun getTechnicalDetails ()Ljava/lang/String;
+	public final fun getTitle ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/ecom/EcomEntitlement {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IZJ)V
+	public final fun getCatalogItemId ()Ljava/lang/String;
+	public final fun getEndTimestamp ()J
+	public final fun getEntitlementId ()Ljava/lang/String;
+	public final fun getEntitlementName ()Ljava/lang/String;
+	public final fun getRedeemed ()Z
+	public final fun getServerIndex ()I
+}
+
+public final class gg/sona/eos/ecom/EosCheckoutOrientation : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/ecom/EosCheckoutOrientation$Companion;
+	public static final field Default Lgg/sona/eos/ecom/EosCheckoutOrientation;
+	public static final field Landscape Lgg/sona/eos/ecom/EosCheckoutOrientation;
+	public static final field Portrait Lgg/sona/eos/ecom/EosCheckoutOrientation;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/ecom/EosCheckoutOrientation;
+	public static fun values ()[Lgg/sona/eos/ecom/EosCheckoutOrientation;
+}
+
+public final class gg/sona/eos/ecom/EosCheckoutOrientation$Companion {
+}
+
+public final class gg/sona/eos/ecom/EosEcom {
+	public static final field CATALOG_ITEM_ID_MAX_LENGTH I
+	public static final field CATALOG_OFFER_ID_MAX_LENGTH I
+	public static final field Companion Lgg/sona/eos/ecom/EosEcom$Companion;
+	public static final field ENTITLEMENT_END_TIMESTAMP_UNDEFINED J
+	public static final field ENTITLEMENT_ID_MAX_LENGTH I
+	public static final field MAX_CHECKOUT_ENTRIES I
+	public static final field MAX_OWNERSHIP_CATALOG_IDS I
+	public static final field MAX_OWNERSHIP_SANDBOX_IDS I
+	public static final field MAX_OWNERSHIP_TOKEN_CATALOG_IDS I
+	public static final field MAX_QUERY_ENTITLEMENT_IDS I
+	public static final field MAX_QUERY_ENTITLEMENT_TOKEN_IDS I
+	public static final field REDEEM_MAX_ENTITLEMENT_IDS I
+	public static final field TRANSACTION_ID_MAX_LENGTH I
+	public final fun checkout-gzWQLfQ (JLjava/util/List;Z)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun checkout-gzWQLfQ$default (Lgg/sona/eos/ecom/EosEcom;JLjava/util/List;ZILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+	public final fun copyEntitlementById-U7XWmHo (JLjava/lang/String;)Lgg/sona/eos/ecom/EcomEntitlement;
+	public final fun copyEntitlementByIndex-U7XWmHo (JI)Lgg/sona/eos/ecom/EcomEntitlement;
+	public final fun copyEntitlementByNameAndIndex-gzWQLfQ (JLjava/lang/String;I)Lgg/sona/eos/ecom/EcomEntitlement;
+	public final fun copyOfferById-Fy2Y2lw (Lgg/sona/eos/common/EpicAccountId;Ljava/lang/String;)Lgg/sona/eos/ecom/EcomCatalogOffer;
+	public final fun copyOfferByIndex-Fy2Y2lw (Lgg/sona/eos/common/EpicAccountId;I)Lgg/sona/eos/ecom/EcomCatalogOffer;
+	public final fun getEntitlementsByNameCount-U7XWmHo (JLjava/lang/String;)I
+	public final fun getEntitlementsCount-5lOE03A (J)I
+	public final fun getOfferCount-0qh6uSI (Lgg/sona/eos/common/EpicAccountId;)I
+	public static synthetic fun getOfferCount-0qh6uSI$default (Lgg/sona/eos/ecom/EosEcom;Lgg/sona/eos/common/EpicAccountId;ILjava/lang/Object;)I
+	public final fun queryEntitlementToken-U7XWmHo (JLjava/util/List;)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun queryEntitlementToken-U7XWmHo$default (Lgg/sona/eos/ecom/EosEcom;JLjava/util/List;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+	public final fun queryEntitlements-EYqj3fI (Lgg/sona/eos/common/EpicAccountId;Ljava/util/List;Z)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun queryEntitlements-EYqj3fI$default (Lgg/sona/eos/ecom/EosEcom;Lgg/sona/eos/common/EpicAccountId;Ljava/util/List;ZILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+	public final fun queryOffers-Fy2Y2lw (Lgg/sona/eos/common/EpicAccountId;Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun queryOffers-Fy2Y2lw$default (Lgg/sona/eos/ecom/EosEcom;Lgg/sona/eos/common/EpicAccountId;Ljava/lang/String;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+	public final fun queryOwnership-gzWQLfQ (JLjava/util/List;Ljava/util/List;)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun queryOwnership-gzWQLfQ$default (Lgg/sona/eos/ecom/EosEcom;JLjava/util/List;Ljava/util/List;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+	public final fun queryOwnershipBySandboxIds-gzWQLfQ (JLjava/util/List;Ljava/util/List;)Ljava/util/concurrent/CompletableFuture;
+	public final fun queryOwnershipToken-U7XWmHo (JLjava/util/List;)Ljava/util/concurrent/CompletableFuture;
+	public final fun redeemEntitlements-U7XWmHo (JLjava/util/List;)Ljava/util/concurrent/CompletableFuture;
+}
+
+public final class gg/sona/eos/ecom/EosEcom$Companion {
+}
+
+public final class gg/sona/eos/ecom/EosEcomItemType : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/ecom/EosEcomItemType$Companion;
+	public static final field Consumable Lgg/sona/eos/ecom/EosEcomItemType;
+	public static final field Durable Lgg/sona/eos/ecom/EosEcomItemType;
+	public static final field Other Lgg/sona/eos/ecom/EosEcomItemType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/ecom/EosEcomItemType;
+	public static fun values ()[Lgg/sona/eos/ecom/EosEcomItemType;
+}
+
+public final class gg/sona/eos/ecom/EosEcomItemType$Companion {
+}
+
+public final class gg/sona/eos/ecom/EosOwnershipStatus : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/ecom/EosOwnershipStatus$Companion;
+	public static final field NotOwned Lgg/sona/eos/ecom/EosOwnershipStatus;
+	public static final field Owned Lgg/sona/eos/ecom/EosOwnershipStatus;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/ecom/EosOwnershipStatus;
+	public static fun values ()[Lgg/sona/eos/ecom/EosOwnershipStatus;
+}
+
+public final class gg/sona/eos/ecom/EosOwnershipStatus$Companion {
+}
+
+public final class gg/sona/eos/ecom/QueryEntitlementTokenResult {
+	public synthetic fun <init> (Lgg/sona/eos/EosResult;JLjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getLocalUserId-e3tKAQM ()J
+	public final fun getResult ()Lgg/sona/eos/EosResult;
+	public final fun getToken ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/ecom/QueryOwnershipBySandboxIdsResult {
+	public synthetic fun <init> (Lgg/sona/eos/EosResult;JILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getLocalUserId-e3tKAQM ()J
+	public final fun getResult ()Lgg/sona/eos/EosResult;
+	public final fun getSandboxIdCount ()I
+}
+
+public final class gg/sona/eos/ecom/QueryOwnershipTokenResult {
+	public synthetic fun <init> (Lgg/sona/eos/EosResult;JLjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getLocalUserId-e3tKAQM ()J
+	public final fun getResult ()Lgg/sona/eos/EosResult;
+	public final fun getToken ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/friends/EosFriends {
+	public final fun acceptInvite-1C97z-U (JJ)Ljava/util/concurrent/CompletableFuture;
+	public final fun addNotifyFriendsUpdate-U7XWmHo (JLkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun getBlockedUserAtIndex-pIdVmaM (JI)J
+	public final fun getBlockedUsersCount-5lOE03A (J)I
+	public final fun getFriendAtIndex-pIdVmaM (JI)J
+	public final fun getFriendsCount-5lOE03A (J)I
+	public final fun getStatus-1C97z-U (JJ)Lgg/sona/eos/friends/EosFriendsStatus;
+	public final fun queryFriends-5lOE03A (J)Ljava/util/concurrent/CompletableFuture;
+	public final fun rejectInvite-1C97z-U (JJ)Ljava/util/concurrent/CompletableFuture;
+	public final fun removeNotifyFriendsUpdate (Lgg/sona/eos/NotificationHandle;)V
+	public final fun sendInvite-1C97z-U (JJ)Ljava/util/concurrent/CompletableFuture;
+}
+
+public final class gg/sona/eos/friends/EosFriendsStatus : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/friends/EosFriendsStatus$Companion;
+	public static final field Friends Lgg/sona/eos/friends/EosFriendsStatus;
+	public static final field InviteReceived Lgg/sona/eos/friends/EosFriendsStatus;
+	public static final field InviteSent Lgg/sona/eos/friends/EosFriendsStatus;
+	public static final field NotFriends Lgg/sona/eos/friends/EosFriendsStatus;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/friends/EosFriendsStatus;
+	public static fun values ()[Lgg/sona/eos/friends/EosFriendsStatus;
+}
+
+public final class gg/sona/eos/friends/EosFriendsStatus$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/friends/EosFriendsStatus;
+}
+
+public final class gg/sona/eos/friends/FriendsUpdateInfo {
+	public synthetic fun <init> (JJLgg/sona/eos/friends/EosFriendsStatus;Lgg/sona/eos/friends/EosFriendsStatus;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getCurrentStatus ()Lgg/sona/eos/friends/EosFriendsStatus;
+	public final fun getLocalUserId-e3tKAQM ()J
+	public final fun getPreviousStatus ()Lgg/sona/eos/friends/EosFriendsStatus;
+	public final fun getTargetUserId-e3tKAQM ()J
+}
+
+public final class gg/sona/eos/integratedplatform/EosIntegratedPlatform {
+	public final fun addNotifyUserLoginStatusChanged (Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun clearUserPreLogoutCallback (Lgg/sona/eos/NotificationHandle;)V
+	public final fun finalizeDeferredUserLogout-pZ5wb2o (J)Lgg/sona/eos/EosResult;
+	public final fun removeNotifyUserLoginStatusChanged (Lgg/sona/eos/NotificationHandle;)V
+	public final fun setUserLoginStatus-s3Mbdwk (JLjava/lang/String;Lgg/sona/eos/integratedplatform/EosIntegratedPlatformLoginStatus;)Lgg/sona/eos/EosResult;
+	public final fun setUserPreLogoutCallback (Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+}
+
+public final class gg/sona/eos/integratedplatform/EosIntegratedPlatformLoginStatus : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/integratedplatform/EosIntegratedPlatformLoginStatus$Companion;
+	public static final field LoggedIn Lgg/sona/eos/integratedplatform/EosIntegratedPlatformLoginStatus;
+	public static final field NotLoggedIn Lgg/sona/eos/integratedplatform/EosIntegratedPlatformLoginStatus;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/integratedplatform/EosIntegratedPlatformLoginStatus;
+	public static fun values ()[Lgg/sona/eos/integratedplatform/EosIntegratedPlatformLoginStatus;
+}
+
+public final class gg/sona/eos/integratedplatform/EosIntegratedPlatformLoginStatus$Companion {
+}
+
+public final class gg/sona/eos/integratedplatform/UserLoginStatusChangedInfo {
+	public synthetic fun <init> (JLjava/lang/String;Ljava/lang/String;Lgg/sona/eos/integratedplatform/EosIntegratedPlatformLoginStatus;Lgg/sona/eos/integratedplatform/EosIntegratedPlatformLoginStatus;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getCurrentPlatform ()Ljava/lang/String;
+	public final fun getCurrentStatus ()Lgg/sona/eos/integratedplatform/EosIntegratedPlatformLoginStatus;
+	public final fun getLocalUserId-bqYAy6Q ()J
+	public final fun getPreviousPlatform ()Ljava/lang/String;
+	public final fun getPreviousStatus ()Lgg/sona/eos/integratedplatform/EosIntegratedPlatformLoginStatus;
+}
+
+public final class gg/sona/eos/integratedplatform/UserPreLogoutInfo {
+	public synthetic fun <init> (JLjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getLocalUserId-bqYAy6Q ()J
+	public final fun getPlatform ()Ljava/lang/String;
+}
+
+public abstract interface class gg/sona/eos/internal/EosCallback {
+	public abstract fun invoke (Lgg/sona/eos/internal/foreign/MemorySegment;)V
+}
+
+public final class gg/sona/eos/internal/NativeApiKt {
+	public static final fun allocCString (Lgg/sona/eos/internal/foreign/Arena;Ljava/lang/String;)Lgg/sona/eos/internal/foreign/MemorySegment;
+	public static final fun allocCStringArray (Lgg/sona/eos/internal/foreign/Arena;Ljava/util/List;)Lgg/sona/eos/internal/foreign/MemorySegment;
+	public static final fun allocHandleArray (Lgg/sona/eos/internal/foreign/Arena;Ljava/util/List;)Lgg/sona/eos/internal/foreign/MemorySegment;
+	public static final fun getCStringAt (Lgg/sona/eos/internal/foreign/MemorySegment;J)Ljava/lang/String;
+	public static final fun getFixedCString (Lgg/sona/eos/internal/foreign/MemorySegment;JI)Ljava/lang/String;
+	public static final fun withArena (Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+	public static final fun withCallArena (Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+	public static final fun withStruct (Lgg/sona/eos/internal/StructWriter;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
+}
+
+public abstract interface class gg/sona/eos/internal/StructWriter {
+	public abstract fun writeTo (Lgg/sona/eos/internal/foreign/Arena;)Lgg/sona/eos/internal/foreign/MemorySegment;
+}
+
+public abstract interface class gg/sona/eos/internal/StructWriterInternal {
+	public abstract fun writeTo (Lgg/sona/eos/internal/foreign/Arena;)Lgg/sona/eos/internal/foreign/MemorySegment;
+}
+
+public final class gg/sona/eos/internal/StructWriterKt {
+	public static final fun getBool (Lgg/sona/eos/internal/foreign/MemorySegment;J)Z
+	public static final fun getDouble (Lgg/sona/eos/internal/foreign/MemorySegment;J)D
+	public static final fun getFloat (Lgg/sona/eos/internal/foreign/MemorySegment;J)F
+	public static final fun getInt16 (Lgg/sona/eos/internal/foreign/MemorySegment;J)S
+	public static final fun getInt32 (Lgg/sona/eos/internal/foreign/MemorySegment;J)I
+	public static final fun getInt64 (Lgg/sona/eos/internal/foreign/MemorySegment;J)J
+	public static final fun getInt8 (Lgg/sona/eos/internal/foreign/MemorySegment;J)B
+	public static final fun getUInt16 (Lgg/sona/eos/internal/foreign/MemorySegment;J)I
+	public static final fun getUInt32 (Lgg/sona/eos/internal/foreign/MemorySegment;J)J
+	public static final fun getUInt8 (Lgg/sona/eos/internal/foreign/MemorySegment;J)I
+	public static final fun setBool (Lgg/sona/eos/internal/foreign/MemorySegment;JZ)V
+	public static final fun setDouble (Lgg/sona/eos/internal/foreign/MemorySegment;JD)V
+	public static final fun setFloat (Lgg/sona/eos/internal/foreign/MemorySegment;JF)V
+	public static final fun setInt16 (Lgg/sona/eos/internal/foreign/MemorySegment;JS)V
+	public static final fun setInt32 (Lgg/sona/eos/internal/foreign/MemorySegment;JI)V
+	public static final fun setInt64 (Lgg/sona/eos/internal/foreign/MemorySegment;JJ)V
+	public static final fun setInt8 (Lgg/sona/eos/internal/foreign/MemorySegment;JB)V
+	public static final fun setUInt16 (Lgg/sona/eos/internal/foreign/MemorySegment;JI)V
+	public static final fun setUInt32 (Lgg/sona/eos/internal/foreign/MemorySegment;JJ)V
+	public static final fun setUInt8 (Lgg/sona/eos/internal/foreign/MemorySegment;JI)V
+}
+
+public final class gg/sona/eos/internal/foreign/Arena : java/lang/AutoCloseable {
+	public static final field Companion Lgg/sona/eos/internal/foreign/Arena$Companion;
+	public final fun allocate (J)Lgg/sona/eos/internal/foreign/MemorySegment;
+	public final fun allocate (Lgg/sona/eos/internal/foreign/MemoryLayout;)Lgg/sona/eos/internal/foreign/MemorySegment;
+	public final fun allocate (Lgg/sona/eos/internal/foreign/MemoryLayout;J)Lgg/sona/eos/internal/foreign/MemorySegment;
+	public final fun allocateFrom (Ljava/lang/String;)Lgg/sona/eos/internal/foreign/MemorySegment;
+	public fun close ()V
+}
+
+public final class gg/sona/eos/internal/foreign/Arena$Companion {
+	public final fun ofConfined ()Lgg/sona/eos/internal/foreign/Arena;
+	public final fun ofShared ()Lgg/sona/eos/internal/foreign/Arena;
+}
+
+public final class gg/sona/eos/internal/foreign/FunctionDescriptor {
+	public static final field Companion Lgg/sona/eos/internal/foreign/FunctionDescriptor$Companion;
+	public final fun argumentLayouts ()Ljava/util/List;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public final fun returnLayout ()Ljava/util/Optional;
+}
+
+public final class gg/sona/eos/internal/foreign/FunctionDescriptor$Companion {
+	public final fun of (Lgg/sona/eos/internal/foreign/ValueLayout;[Lgg/sona/eos/internal/foreign/ValueLayout;)Lgg/sona/eos/internal/foreign/FunctionDescriptor;
+	public final fun ofVoid ([Lgg/sona/eos/internal/foreign/ValueLayout;)Lgg/sona/eos/internal/foreign/FunctionDescriptor;
+}
+
+public final class gg/sona/eos/internal/foreign/GroupLayout : gg/sona/eos/internal/foreign/MemoryLayout {
+	public fun byteAlignment ()J
+	public fun byteSize ()J
+	public final fun getMembers ()Ljava/util/List;
+	public fun withName (Ljava/lang/String;)Lgg/sona/eos/internal/foreign/GroupLayout;
+	public synthetic fun withName (Ljava/lang/String;)Lgg/sona/eos/internal/foreign/MemoryLayout;
+}
+
+public abstract class gg/sona/eos/internal/foreign/MemoryLayout {
+	public static final field Companion Lgg/sona/eos/internal/foreign/MemoryLayout$Companion;
+	public abstract fun byteAlignment ()J
+	public abstract fun byteSize ()J
+	public fun withName (Ljava/lang/String;)Lgg/sona/eos/internal/foreign/MemoryLayout;
+}
+
+public final class gg/sona/eos/internal/foreign/MemoryLayout$Companion {
+	public final fun paddingLayout (J)Lgg/sona/eos/internal/foreign/MemoryLayout;
+	public final fun sequenceLayout (JLgg/sona/eos/internal/foreign/MemoryLayout;)Lgg/sona/eos/internal/foreign/MemoryLayout;
+	public final fun structLayout ([Lgg/sona/eos/internal/foreign/MemoryLayout;)Lgg/sona/eos/internal/foreign/GroupLayout;
+}
+
+public final class gg/sona/eos/internal/foreign/MemorySegment {
+	public static final field Companion Lgg/sona/eos/internal/foreign/MemorySegment$Companion;
+	public final fun address ()J
+	public final fun asSlice (JJ)Lgg/sona/eos/internal/foreign/MemorySegment;
+	public final fun byteSize ()J
+	public final fun copyFrom (Lgg/sona/eos/internal/foreign/MemorySegment;)Lgg/sona/eos/internal/foreign/MemorySegment;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun get (Lgg/sona/eos/internal/foreign/ValueLayout$AddressLayout;J)Lgg/sona/eos/internal/foreign/MemorySegment;
+	public final fun get (Lgg/sona/eos/internal/foreign/ValueLayout$OfBoolean;J)Z
+	public final fun get (Lgg/sona/eos/internal/foreign/ValueLayout$OfByte;J)B
+	public final fun get (Lgg/sona/eos/internal/foreign/ValueLayout$OfChar;J)C
+	public final fun get (Lgg/sona/eos/internal/foreign/ValueLayout$OfDouble;J)D
+	public final fun get (Lgg/sona/eos/internal/foreign/ValueLayout$OfFloat;J)F
+	public final fun get (Lgg/sona/eos/internal/foreign/ValueLayout$OfInt;J)I
+	public final fun get (Lgg/sona/eos/internal/foreign/ValueLayout$OfLong;J)J
+	public final fun get (Lgg/sona/eos/internal/foreign/ValueLayout$OfShort;J)S
+	public final fun getAtIndex (Lgg/sona/eos/internal/foreign/ValueLayout$AddressLayout;J)Lgg/sona/eos/internal/foreign/MemorySegment;
+	public final fun getAtIndex (Lgg/sona/eos/internal/foreign/ValueLayout$OfByte;J)B
+	public final fun getAtIndex (Lgg/sona/eos/internal/foreign/ValueLayout$OfDouble;J)D
+	public final fun getAtIndex (Lgg/sona/eos/internal/foreign/ValueLayout$OfFloat;J)F
+	public final fun getAtIndex (Lgg/sona/eos/internal/foreign/ValueLayout$OfInt;J)I
+	public final fun getAtIndex (Lgg/sona/eos/internal/foreign/ValueLayout$OfLong;J)J
+	public final fun getAtIndex (Lgg/sona/eos/internal/foreign/ValueLayout$OfShort;J)S
+	public final fun getString (J)Ljava/lang/String;
+	public fun hashCode ()I
+	public static final fun ofAddress (J)Lgg/sona/eos/internal/foreign/MemorySegment;
+	public final fun reinterpret (J)Lgg/sona/eos/internal/foreign/MemorySegment;
+	public final fun set (Lgg/sona/eos/internal/foreign/ValueLayout$AddressLayout;JLgg/sona/eos/internal/foreign/MemorySegment;)V
+	public final fun set (Lgg/sona/eos/internal/foreign/ValueLayout$OfBoolean;JZ)V
+	public final fun set (Lgg/sona/eos/internal/foreign/ValueLayout$OfByte;JB)V
+	public final fun set (Lgg/sona/eos/internal/foreign/ValueLayout$OfChar;JC)V
+	public final fun set (Lgg/sona/eos/internal/foreign/ValueLayout$OfDouble;JD)V
+	public final fun set (Lgg/sona/eos/internal/foreign/ValueLayout$OfFloat;JF)V
+	public final fun set (Lgg/sona/eos/internal/foreign/ValueLayout$OfInt;JI)V
+	public final fun set (Lgg/sona/eos/internal/foreign/ValueLayout$OfLong;JJ)V
+	public final fun set (Lgg/sona/eos/internal/foreign/ValueLayout$OfShort;JS)V
+	public final fun setAtIndex (Lgg/sona/eos/internal/foreign/ValueLayout$AddressLayout;JLgg/sona/eos/internal/foreign/MemorySegment;)V
+	public final fun setAtIndex (Lgg/sona/eos/internal/foreign/ValueLayout$OfByte;JB)V
+	public final fun setAtIndex (Lgg/sona/eos/internal/foreign/ValueLayout$OfDouble;JD)V
+	public final fun setAtIndex (Lgg/sona/eos/internal/foreign/ValueLayout$OfFloat;JF)V
+	public final fun setAtIndex (Lgg/sona/eos/internal/foreign/ValueLayout$OfInt;JI)V
+	public final fun setAtIndex (Lgg/sona/eos/internal/foreign/ValueLayout$OfLong;JJ)V
+	public final fun setAtIndex (Lgg/sona/eos/internal/foreign/ValueLayout$OfShort;JS)V
+}
+
+public final class gg/sona/eos/internal/foreign/MemorySegment$Companion {
+	public final fun copy (Lgg/sona/eos/internal/foreign/MemorySegment;JLgg/sona/eos/internal/foreign/MemorySegment;JJ)V
+	public final fun copy (Lgg/sona/eos/internal/foreign/MemorySegment;Lgg/sona/eos/internal/foreign/ValueLayout$OfByte;J[BII)V
+	public final fun getNULL ()Lgg/sona/eos/internal/foreign/MemorySegment;
+	public final fun ofAddress (J)Lgg/sona/eos/internal/foreign/MemorySegment;
+	public final fun ofArray ([B)Lgg/sona/eos/internal/foreign/MemorySegment;
+	public final fun ofArray ([S)Lgg/sona/eos/internal/foreign/MemorySegment;
+}
+
+public abstract class gg/sona/eos/internal/foreign/ValueLayout : gg/sona/eos/internal/foreign/MemoryLayout {
+	public static final field Companion Lgg/sona/eos/internal/foreign/ValueLayout$Companion;
+	public synthetic fun <init> (Ljava/lang/Class;JLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun byteAlignment ()J
+	public fun byteSize ()J
+	public final fun carrier ()Ljava/lang/Class;
+	public final fun getCarrier ()Ljava/lang/Class;
+}
+
+public final class gg/sona/eos/internal/foreign/ValueLayout$AddressLayout : gg/sona/eos/internal/foreign/ValueLayout {
+	public final fun unsized ()Lgg/sona/eos/internal/foreign/ValueLayout$AddressLayout;
+}
+
+public final class gg/sona/eos/internal/foreign/ValueLayout$Companion {
+	public final fun getADDRESS ()Lgg/sona/eos/internal/foreign/ValueLayout$AddressLayout;
+	public final fun getJAVA_BOOLEAN ()Lgg/sona/eos/internal/foreign/ValueLayout$OfBoolean;
+	public final fun getJAVA_BYTE ()Lgg/sona/eos/internal/foreign/ValueLayout$OfByte;
+	public final fun getJAVA_CHAR ()Lgg/sona/eos/internal/foreign/ValueLayout$OfChar;
+	public final fun getJAVA_DOUBLE ()Lgg/sona/eos/internal/foreign/ValueLayout$OfDouble;
+	public final fun getJAVA_FLOAT ()Lgg/sona/eos/internal/foreign/ValueLayout$OfFloat;
+	public final fun getJAVA_INT ()Lgg/sona/eos/internal/foreign/ValueLayout$OfInt;
+	public final fun getJAVA_LONG ()Lgg/sona/eos/internal/foreign/ValueLayout$OfLong;
+	public final fun getJAVA_SHORT ()Lgg/sona/eos/internal/foreign/ValueLayout$OfShort;
+}
+
+public final class gg/sona/eos/internal/foreign/ValueLayout$OfBoolean : gg/sona/eos/internal/foreign/ValueLayout {
+}
+
+public final class gg/sona/eos/internal/foreign/ValueLayout$OfByte : gg/sona/eos/internal/foreign/ValueLayout {
+}
+
+public final class gg/sona/eos/internal/foreign/ValueLayout$OfChar : gg/sona/eos/internal/foreign/ValueLayout {
+}
+
+public final class gg/sona/eos/internal/foreign/ValueLayout$OfDouble : gg/sona/eos/internal/foreign/ValueLayout {
+}
+
+public final class gg/sona/eos/internal/foreign/ValueLayout$OfFloat : gg/sona/eos/internal/foreign/ValueLayout {
+}
+
+public final class gg/sona/eos/internal/foreign/ValueLayout$OfInt : gg/sona/eos/internal/foreign/ValueLayout {
+}
+
+public final class gg/sona/eos/internal/foreign/ValueLayout$OfLong : gg/sona/eos/internal/foreign/ValueLayout {
+}
+
+public final class gg/sona/eos/internal/foreign/ValueLayout$OfShort : gg/sona/eos/internal/foreign/ValueLayout {
+}
+
+public final class gg/sona/eos/kws/CreateUserResult {
+	public synthetic fun <init> (Lgg/sona/eos/EosResult;JLjava/lang/String;ZLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getKwsUserId ()Ljava/lang/String;
+	public final fun getLocalUserId-bqYAy6Q ()J
+	public final fun getResult ()Lgg/sona/eos/EosResult;
+	public final fun isMinor ()Z
+}
+
+public final class gg/sona/eos/kws/EosKws {
+	public static final field Companion Lgg/sona/eos/kws/EosKws$Companion;
+	public static final field MAX_PERMISSIONS I
+	public static final field MAX_PERMISSION_LENGTH I
+	public final fun addNotifyPermissionsUpdateReceived (Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun copyPermissionByIndex-pPv1uy4 (JI)Lgg/sona/eos/kws/KwsPermissionStatus;
+	public final fun createUser-s3Mbdwk (JLjava/lang/String;Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
+	public final fun getPermissionByKey-pPv1uy4 (JLjava/lang/String;)Lgg/sona/eos/kws/EosKwsPermissionStatus;
+	public final fun getPermissionsCount-pZ5wb2o (J)I
+	public final fun queryAgeGate ()Ljava/util/concurrent/CompletableFuture;
+	public final fun queryPermissions-pZ5wb2o (J)Ljava/util/concurrent/CompletableFuture;
+	public final fun removeNotifyPermissionsUpdateReceived (Lgg/sona/eos/NotificationHandle;)V
+	public final fun requestPermissions-pPv1uy4 (JLjava/util/List;)Ljava/util/concurrent/CompletableFuture;
+	public final fun updateParentEmail-pPv1uy4 (JLjava/lang/String;)Ljava/util/concurrent/CompletableFuture;
+}
+
+public final class gg/sona/eos/kws/EosKws$Companion {
+}
+
+public final class gg/sona/eos/kws/EosKwsPermissionStatus : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/kws/EosKwsPermissionStatus$Companion;
+	public static final field Granted Lgg/sona/eos/kws/EosKwsPermissionStatus;
+	public static final field Pending Lgg/sona/eos/kws/EosKwsPermissionStatus;
+	public static final field Rejected Lgg/sona/eos/kws/EosKwsPermissionStatus;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/kws/EosKwsPermissionStatus;
+	public static fun values ()[Lgg/sona/eos/kws/EosKwsPermissionStatus;
+}
+
+public final class gg/sona/eos/kws/EosKwsPermissionStatus$Companion {
+}
+
+public final class gg/sona/eos/kws/KwsPermissionStatus {
+	public fun <init> (Ljava/lang/String;Lgg/sona/eos/kws/EosKwsPermissionStatus;)V
+	public final fun getName ()Ljava/lang/String;
+	public final fun getStatus ()Lgg/sona/eos/kws/EosKwsPermissionStatus;
+}
+
+public final class gg/sona/eos/kws/PermissionsUpdateInfo {
+	public synthetic fun <init> (JLjava/lang/String;Ljava/lang/String;ZLjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getDateOfBirth ()Ljava/lang/String;
+	public final fun getKwsUserId ()Ljava/lang/String;
+	public final fun getLocalUserId-bqYAy6Q ()J
+	public final fun getParentEmail ()Ljava/lang/String;
+	public final fun isMinor ()Z
+}
+
+public final class gg/sona/eos/kws/QueryAgeGateResult {
+	public fun <init> (Lgg/sona/eos/EosResult;Ljava/lang/String;I)V
+	public final fun getAgeOfConsent ()I
+	public final fun getCountryCode ()Ljava/lang/String;
+	public final fun getResult ()Lgg/sona/eos/EosResult;
+}
+
+public final class gg/sona/eos/kws/QueryPermissionsResult {
+	public synthetic fun <init> (Lgg/sona/eos/EosResult;JLjava/lang/String;Ljava/lang/String;ZLjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getDateOfBirth ()Ljava/lang/String;
+	public final fun getKwsUserId ()Ljava/lang/String;
+	public final fun getLocalUserId-bqYAy6Q ()J
+	public final fun getParentEmail ()Ljava/lang/String;
+	public final fun getResult ()Lgg/sona/eos/EosResult;
+	public final fun isMinor ()Z
+}
+
+public final class gg/sona/eos/leaderboards/EosLeaderboards {
+	public static final field Companion Lgg/sona/eos/leaderboards/EosLeaderboards$Companion;
+	public static final field TIME_UNDEFINED J
+	public final fun copyLeaderboardDefinitionByIndex (I)Lgg/sona/eos/leaderboards/LeaderboardDefinition;
+	public final fun copyLeaderboardDefinitionByLeaderboardId (Ljava/lang/String;)Lgg/sona/eos/leaderboards/LeaderboardDefinition;
+	public final fun copyLeaderboardRecordByIndex (I)Lgg/sona/eos/leaderboards/LeaderboardRecord;
+	public final fun copyLeaderboardRecordByUserId-pZ5wb2o (J)Lgg/sona/eos/leaderboards/LeaderboardRecord;
+	public final fun copyLeaderboardUserScoreByIndex (Ljava/lang/String;I)Lgg/sona/eos/leaderboards/LeaderboardUserScore;
+	public final fun copyLeaderboardUserScoreByUserId-qZpfKx4 (Ljava/lang/String;J)Lgg/sona/eos/leaderboards/LeaderboardUserScore;
+	public final fun getLeaderboardDefinitionCount ()I
+	public final fun getLeaderboardRecordCount ()I
+	public final fun getLeaderboardUserScoreCount (Ljava/lang/String;)I
+	public final fun queryLeaderboardDefinitions-jTV7uZk (Lgg/sona/eos/common/ProductUserId;JJ)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun queryLeaderboardDefinitions-jTV7uZk$default (Lgg/sona/eos/leaderboards/EosLeaderboards;Lgg/sona/eos/common/ProductUserId;JJILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+	public final fun queryLeaderboardRanks-dVTr4a4 (Ljava/lang/String;Lgg/sona/eos/common/ProductUserId;)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun queryLeaderboardRanks-dVTr4a4$default (Lgg/sona/eos/leaderboards/EosLeaderboards;Ljava/lang/String;Lgg/sona/eos/common/ProductUserId;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+	public final fun queryLeaderboardUserScores-VOke_SA (Ljava/util/List;Ljava/util/List;Lgg/sona/eos/common/ProductUserId;JJ)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun queryLeaderboardUserScores-VOke_SA$default (Lgg/sona/eos/leaderboards/EosLeaderboards;Ljava/util/List;Ljava/util/List;Lgg/sona/eos/common/ProductUserId;JJILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+}
+
+public final class gg/sona/eos/leaderboards/EosLeaderboards$Companion {
+}
+
+public final class gg/sona/eos/leaderboards/LeaderboardAggregation : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/leaderboards/LeaderboardAggregation$Companion;
+	public static final field Latest Lgg/sona/eos/leaderboards/LeaderboardAggregation;
+	public static final field Max Lgg/sona/eos/leaderboards/LeaderboardAggregation;
+	public static final field Min Lgg/sona/eos/leaderboards/LeaderboardAggregation;
+	public static final field Sum Lgg/sona/eos/leaderboards/LeaderboardAggregation;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/leaderboards/LeaderboardAggregation;
+	public static fun values ()[Lgg/sona/eos/leaderboards/LeaderboardAggregation;
+}
+
+public final class gg/sona/eos/leaderboards/LeaderboardAggregation$Companion {
+}
+
+public final class gg/sona/eos/leaderboards/LeaderboardDefinition {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lgg/sona/eos/leaderboards/LeaderboardAggregation;JJ)V
+	public final fun getAggregation ()Lgg/sona/eos/leaderboards/LeaderboardAggregation;
+	public final fun getEndTime ()J
+	public final fun getLeaderboardId ()Ljava/lang/String;
+	public final fun getStartTime ()J
+	public final fun getStatName ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/leaderboards/LeaderboardRecord {
+	public synthetic fun <init> (JIILjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getRank-pVg5ArA ()I
+	public final fun getScore ()I
+	public final fun getUserDisplayName ()Ljava/lang/String;
+	public final fun getUserId-bqYAy6Q ()J
+}
+
+public final class gg/sona/eos/leaderboards/LeaderboardUserScore {
+	public synthetic fun <init> (JILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getScore ()I
+	public final fun getUserId-bqYAy6Q ()J
+}
+
+public final class gg/sona/eos/leaderboards/QueryLeaderboardRanksResult {
+	public fun <init> (Lgg/sona/eos/EosResult;Ljava/lang/String;)V
+	public final fun getLeaderboardId ()Ljava/lang/String;
+	public final fun getResult ()Lgg/sona/eos/EosResult;
+}
+
+public final class gg/sona/eos/leaderboards/UserScoresQueryStatInfo {
+	public fun <init> (Ljava/lang/String;Lgg/sona/eos/leaderboards/LeaderboardAggregation;)V
+	public final fun getAggregation ()Lgg/sona/eos/leaderboards/LeaderboardAggregation;
+	public final fun getStatName ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/lobby/EosLobby {
+	public final fun addNotifyLobbyMemberStatusReceived (Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun addNotifyLobbyMemberUpdateReceived (Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun addNotifyLobbyUpdateReceived (Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun createLobby-XhmhNcw (Ljava/lang/String;ILgg/sona/eos/common/EpicAccountId;ZZLjava/lang/String;)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun createLobby-XhmhNcw$default (Lgg/sona/eos/lobby/EosLobby;Ljava/lang/String;ILgg/sona/eos/common/EpicAccountId;ZZLjava/lang/String;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+	public final fun destroyLobby-abJsm4M (Ljava/lang/String;Lgg/sona/eos/common/EpicAccountId;)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun destroyLobby-abJsm4M$default (Lgg/sona/eos/lobby/EosLobby;Ljava/lang/String;Lgg/sona/eos/common/EpicAccountId;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+	public final fun getInviteCount-0qh6uSI (Lgg/sona/eos/common/EpicAccountId;)I
+	public static synthetic fun getInviteCount-0qh6uSI$default (Lgg/sona/eos/lobby/EosLobby;Lgg/sona/eos/common/EpicAccountId;ILjava/lang/Object;)I
+	public final fun getRTCRoomName (Ljava/lang/String;)Ljava/lang/String;
+	public final fun hardMuteMember-qdFmZos (Ljava/lang/String;JZLgg/sona/eos/common/EpicAccountId;)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun hardMuteMember-qdFmZos$default (Lgg/sona/eos/lobby/EosLobby;Ljava/lang/String;JZLgg/sona/eos/common/EpicAccountId;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+	public final fun joinLobby-QcvhKgY (Ljava/lang/String;Lgg/sona/eos/common/EpicAccountId;Z)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun joinLobby-QcvhKgY$default (Lgg/sona/eos/lobby/EosLobby;Ljava/lang/String;Lgg/sona/eos/common/EpicAccountId;ZILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+	public final fun kickMember-wqDC6rk (Ljava/lang/String;JLgg/sona/eos/common/EpicAccountId;)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun kickMember-wqDC6rk$default (Lgg/sona/eos/lobby/EosLobby;Ljava/lang/String;JLgg/sona/eos/common/EpicAccountId;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+	public final fun leaveLobby-abJsm4M (Ljava/lang/String;Lgg/sona/eos/common/EpicAccountId;)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun leaveLobby-abJsm4M$default (Lgg/sona/eos/lobby/EosLobby;Ljava/lang/String;Lgg/sona/eos/common/EpicAccountId;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+	public final fun promoteMember-wqDC6rk (Ljava/lang/String;JLgg/sona/eos/common/EpicAccountId;)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun promoteMember-wqDC6rk$default (Lgg/sona/eos/lobby/EosLobby;Ljava/lang/String;JLgg/sona/eos/common/EpicAccountId;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+	public final fun queryInvites-0qh6uSI (Lgg/sona/eos/common/EpicAccountId;)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun queryInvites-0qh6uSI$default (Lgg/sona/eos/lobby/EosLobby;Lgg/sona/eos/common/EpicAccountId;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+	public final fun rejectInvite-abJsm4M (Ljava/lang/String;Lgg/sona/eos/common/EpicAccountId;)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun rejectInvite-abJsm4M$default (Lgg/sona/eos/lobby/EosLobby;Ljava/lang/String;Lgg/sona/eos/common/EpicAccountId;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+	public final fun removeNotifyLobbyMemberStatusReceived (Lgg/sona/eos/NotificationHandle;)V
+	public final fun removeNotifyLobbyMemberUpdateReceived (Lgg/sona/eos/NotificationHandle;)V
+	public final fun removeNotifyLobbyUpdateReceived (Lgg/sona/eos/NotificationHandle;)V
+	public final fun sendInvite-9DX57Gg (Ljava/lang/String;JLgg/sona/eos/common/EpicAccountId;)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun sendInvite-9DX57Gg$default (Lgg/sona/eos/lobby/EosLobby;Ljava/lang/String;JLgg/sona/eos/common/EpicAccountId;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+	public final fun updateLobby-abJsm4M (Ljava/lang/String;Lgg/sona/eos/common/EpicAccountId;)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun updateLobby-abJsm4M$default (Lgg/sona/eos/lobby/EosLobby;Ljava/lang/String;Lgg/sona/eos/common/EpicAccountId;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+}
+
+public final class gg/sona/eos/lobby/EosLobbyMemberStatus : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/lobby/EosLobbyMemberStatus$Companion;
+	public static final field Disconnected Lgg/sona/eos/lobby/EosLobbyMemberStatus;
+	public static final field Joined Lgg/sona/eos/lobby/EosLobbyMemberStatus;
+	public static final field Kicked Lgg/sona/eos/lobby/EosLobbyMemberStatus;
+	public static final field Left Lgg/sona/eos/lobby/EosLobbyMemberStatus;
+	public static final field Promoted Lgg/sona/eos/lobby/EosLobbyMemberStatus;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/lobby/EosLobbyMemberStatus;
+	public static fun values ()[Lgg/sona/eos/lobby/EosLobbyMemberStatus;
+}
+
+public final class gg/sona/eos/lobby/EosLobbyMemberStatus$Companion {
+}
+
+public final class gg/sona/eos/lobby/LobbyMemberStatusReceivedInfo {
+	public synthetic fun <init> (Ljava/lang/String;JLgg/sona/eos/lobby/EosLobbyMemberStatus;Lgg/sona/eos/lobby/EosLobbyMemberStatus;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getCurrentStatus ()Lgg/sona/eos/lobby/EosLobbyMemberStatus;
+	public final fun getLobbyId ()Ljava/lang/String;
+	public final fun getPreviousStatus ()Lgg/sona/eos/lobby/EosLobbyMemberStatus;
+	public final fun getTargetUserId-bqYAy6Q ()J
+}
+
+public final class gg/sona/eos/lobby/LobbyMemberUpdateReceivedInfo {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun getLobbyId ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/lobby/LobbyUpdateReceivedInfo {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun getLobbyId ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/logging/EosLogCategory : java/lang/Enum {
+	public static final field Achievements Lgg/sona/eos/logging/EosLogCategory;
+	public static final field AllCategories Lgg/sona/eos/logging/EosLogCategory;
+	public static final field Analytics Lgg/sona/eos/logging/EosLogCategory;
+	public static final field AntiCheat Lgg/sona/eos/logging/EosLogCategory;
+	public static final field Auth Lgg/sona/eos/logging/EosLogCategory;
+	public static final field Companion Lgg/sona/eos/logging/EosLogCategory$Companion;
+	public static final field Connect Lgg/sona/eos/logging/EosLogCategory;
+	public static final field Core Lgg/sona/eos/logging/EosLogCategory;
+	public static final field CustomInvites Lgg/sona/eos/logging/EosLogCategory;
+	public static final field Ecom Lgg/sona/eos/logging/EosLogCategory;
+	public static final field Friends Lgg/sona/eos/logging/EosLogCategory;
+	public static final field HTTP Lgg/sona/eos/logging/EosLogCategory;
+	public static final field HttpSerialization Lgg/sona/eos/logging/EosLogCategory;
+	public static final field IntegratedPlatform Lgg/sona/eos/logging/EosLogCategory;
+	public static final field KWS Lgg/sona/eos/logging/EosLogCategory;
+	public static final field Keychain Lgg/sona/eos/logging/EosLogCategory;
+	public static final field Leaderboards Lgg/sona/eos/logging/EosLogCategory;
+	public static final field Lobby Lgg/sona/eos/logging/EosLogCategory;
+	public static final field Messaging Lgg/sona/eos/logging/EosLogCategory;
+	public static final field Mods Lgg/sona/eos/logging/EosLogCategory;
+	public static final field Overlay Lgg/sona/eos/logging/EosLogCategory;
+	public static final field P2P Lgg/sona/eos/logging/EosLogCategory;
+	public static final field PlayerDataStorage Lgg/sona/eos/logging/EosLogCategory;
+	public static final field Presence Lgg/sona/eos/logging/EosLogCategory;
+	public static final field ProgressionSnapshots Lgg/sona/eos/logging/EosLogCategory;
+	public static final field RTC Lgg/sona/eos/logging/EosLogCategory;
+	public static final field RTCAdmin Lgg/sona/eos/logging/EosLogCategory;
+	public static final field RateLimiter Lgg/sona/eos/logging/EosLogCategory;
+	public static final field Reports Lgg/sona/eos/logging/EosLogCategory;
+	public static final field Sanctions Lgg/sona/eos/logging/EosLogCategory;
+	public static final field Sessions Lgg/sona/eos/logging/EosLogCategory;
+	public static final field Stats Lgg/sona/eos/logging/EosLogCategory;
+	public static final field TitleStorage Lgg/sona/eos/logging/EosLogCategory;
+	public static final field UI Lgg/sona/eos/logging/EosLogCategory;
+	public static final field UserInfo Lgg/sona/eos/logging/EosLogCategory;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/logging/EosLogCategory;
+	public static fun values ()[Lgg/sona/eos/logging/EosLogCategory;
+}
+
+public final class gg/sona/eos/logging/EosLogCategory$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/logging/EosLogCategory;
+}
+
+public final class gg/sona/eos/logging/EosLogLevel : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/logging/EosLogLevel$Companion;
+	public static final field Error Lgg/sona/eos/logging/EosLogLevel;
+	public static final field Fatal Lgg/sona/eos/logging/EosLogLevel;
+	public static final field Info Lgg/sona/eos/logging/EosLogLevel;
+	public static final field Off Lgg/sona/eos/logging/EosLogLevel;
+	public static final field Verbose Lgg/sona/eos/logging/EosLogLevel;
+	public static final field VeryVerbose Lgg/sona/eos/logging/EosLogLevel;
+	public static final field Warning Lgg/sona/eos/logging/EosLogLevel;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/logging/EosLogLevel;
+	public static fun values ()[Lgg/sona/eos/logging/EosLogLevel;
+}
+
+public final class gg/sona/eos/logging/EosLogLevel$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/logging/EosLogLevel;
+}
+
+public final class gg/sona/eos/logging/EosLogMessage {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lgg/sona/eos/logging/EosLogLevel;)V
+	public final fun getCategory ()Ljava/lang/String;
+	public final fun getLevel ()Lgg/sona/eos/logging/EosLogLevel;
+	public final fun getMessage ()Ljava/lang/String;
+}
+
+public abstract interface class gg/sona/eos/logging/EosLogMessageFunc {
+	public abstract fun onLogMessage (Lgg/sona/eos/logging/EosLogMessage;)V
+}
+
+public final class gg/sona/eos/logging/EosLogging {
+	public static final field INSTANCE Lgg/sona/eos/logging/EosLogging;
+	public final fun setCallback (Lgg/sona/eos/logging/EosLogMessageFunc;)Lgg/sona/eos/EosResult;
+	public final fun setLogLevel (Lgg/sona/eos/logging/EosLogCategory;Lgg/sona/eos/logging/EosLogLevel;)Lgg/sona/eos/EosResult;
+}
+
+public final class gg/sona/eos/metrics/EosMetrics {
+	public final fun beginPlayerSession-TIIa95c (Lgg/sona/eos/common/ProductUserId;Ljava/lang/String;Lgg/sona/eos/metrics/EosMetricsControllerType;Ljava/lang/String;)Lgg/sona/eos/EosResult;
+	public static synthetic fun beginPlayerSession-TIIa95c$default (Lgg/sona/eos/metrics/EosMetrics;Lgg/sona/eos/common/ProductUserId;Ljava/lang/String;Lgg/sona/eos/metrics/EosMetricsControllerType;Ljava/lang/String;ILjava/lang/Object;)Lgg/sona/eos/EosResult;
+	public final fun endPlayerSession-U-VWpcI (Lgg/sona/eos/common/ProductUserId;)Lgg/sona/eos/EosResult;
+	public static synthetic fun endPlayerSession-U-VWpcI$default (Lgg/sona/eos/metrics/EosMetrics;Lgg/sona/eos/common/ProductUserId;ILjava/lang/Object;)Lgg/sona/eos/EosResult;
+}
+
+public final class gg/sona/eos/metrics/EosMetricsControllerType : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/metrics/EosMetricsControllerType$Companion;
+	public static final field Gamepad Lgg/sona/eos/metrics/EosMetricsControllerType;
+	public static final field MouseKeyboard Lgg/sona/eos/metrics/EosMetricsControllerType;
+	public static final field TouchInput Lgg/sona/eos/metrics/EosMetricsControllerType;
+	public static final field Unknown Lgg/sona/eos/metrics/EosMetricsControllerType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/metrics/EosMetricsControllerType;
+	public static fun values ()[Lgg/sona/eos/metrics/EosMetricsControllerType;
+}
+
+public final class gg/sona/eos/metrics/EosMetricsControllerType$Companion {
+}
+
+public final class gg/sona/eos/mods/EosModEnumerationType : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/mods/EosModEnumerationType$Companion;
+	public static final field RecentlyInstalled Lgg/sona/eos/mods/EosModEnumerationType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/mods/EosModEnumerationType;
+	public static fun values ()[Lgg/sona/eos/mods/EosModEnumerationType;
+}
+
+public final class gg/sona/eos/mods/EosModEnumerationType$Companion {
+}
+
+public final class gg/sona/eos/mods/EosMods {
+	public final fun copyModInfoByIndex-pPv1uy4 (JI)Lgg/sona/eos/mods/ModInfo;
+	public final fun enumerateMods-pPv1uy4 (JLgg/sona/eos/mods/EosModEnumerationType;)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun enumerateMods-pPv1uy4$default (Lgg/sona/eos/mods/EosMods;JLgg/sona/eos/mods/EosModEnumerationType;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+	public final fun getModCount-pZ5wb2o (J)I
+	public final fun installMod-pPv1uy4 (JLgg/sona/eos/mods/ModIdentifier;)Ljava/util/concurrent/CompletableFuture;
+	public final fun uninstallMod-pPv1uy4 (JLgg/sona/eos/mods/ModIdentifier;)Ljava/util/concurrent/CompletableFuture;
+	public final fun updateMod-pPv1uy4 (JLgg/sona/eos/mods/ModIdentifier;)Ljava/util/concurrent/CompletableFuture;
+}
+
+public final class gg/sona/eos/mods/ModIdentifier {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun getId ()Ljava/lang/String;
+	public final fun getType ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/mods/ModInfo {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
+	public final fun getEnabled ()Z
+	public final fun getId ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getType ()Ljava/lang/String;
+	public final fun getVersion ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/p2p/EosConnectionClosedReason : java/lang/Enum {
+	public static final field ClosedByLocalUser Lgg/sona/eos/p2p/EosConnectionClosedReason;
+	public static final field ClosedByPeer Lgg/sona/eos/p2p/EosConnectionClosedReason;
+	public static final field Companion Lgg/sona/eos/p2p/EosConnectionClosedReason$Companion;
+	public static final field ConnectionClosed Lgg/sona/eos/p2p/EosConnectionClosedReason;
+	public static final field ConnectionFailed Lgg/sona/eos/p2p/EosConnectionClosedReason;
+	public static final field ConnectionIgnored Lgg/sona/eos/p2p/EosConnectionClosedReason;
+	public static final field InvalidData Lgg/sona/eos/p2p/EosConnectionClosedReason;
+	public static final field InvalidMessage Lgg/sona/eos/p2p/EosConnectionClosedReason;
+	public static final field NegotiationFailed Lgg/sona/eos/p2p/EosConnectionClosedReason;
+	public static final field TimedOut Lgg/sona/eos/p2p/EosConnectionClosedReason;
+	public static final field TooManyConnections Lgg/sona/eos/p2p/EosConnectionClosedReason;
+	public static final field UnexpectedError Lgg/sona/eos/p2p/EosConnectionClosedReason;
+	public static final field Unknown Lgg/sona/eos/p2p/EosConnectionClosedReason;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/p2p/EosConnectionClosedReason;
+	public static fun values ()[Lgg/sona/eos/p2p/EosConnectionClosedReason;
+}
+
+public final class gg/sona/eos/p2p/EosConnectionClosedReason$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/p2p/EosConnectionClosedReason;
+}
+
+public final class gg/sona/eos/p2p/EosConnectionEstablishedType : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/p2p/EosConnectionEstablishedType$Companion;
+	public static final field NewConnection Lgg/sona/eos/p2p/EosConnectionEstablishedType;
+	public static final field Reconnection Lgg/sona/eos/p2p/EosConnectionEstablishedType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/p2p/EosConnectionEstablishedType;
+	public static fun values ()[Lgg/sona/eos/p2p/EosConnectionEstablishedType;
+}
+
+public final class gg/sona/eos/p2p/EosConnectionEstablishedType$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/p2p/EosConnectionEstablishedType;
+}
+
+public final class gg/sona/eos/p2p/EosNatType : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/p2p/EosNatType$Companion;
+	public static final field Moderate Lgg/sona/eos/p2p/EosNatType;
+	public static final field Open Lgg/sona/eos/p2p/EosNatType;
+	public static final field Strict Lgg/sona/eos/p2p/EosNatType;
+	public static final field Unknown Lgg/sona/eos/p2p/EosNatType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/p2p/EosNatType;
+	public static fun values ()[Lgg/sona/eos/p2p/EosNatType;
+}
+
+public final class gg/sona/eos/p2p/EosNatType$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/p2p/EosNatType;
+}
+
+public final class gg/sona/eos/p2p/EosNetworkConnectionType : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/p2p/EosNetworkConnectionType$Companion;
+	public static final field DirectConnection Lgg/sona/eos/p2p/EosNetworkConnectionType;
+	public static final field NoConnection Lgg/sona/eos/p2p/EosNetworkConnectionType;
+	public static final field RelayedConnection Lgg/sona/eos/p2p/EosNetworkConnectionType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/p2p/EosNetworkConnectionType;
+	public static fun values ()[Lgg/sona/eos/p2p/EosNetworkConnectionType;
+}
+
+public final class gg/sona/eos/p2p/EosNetworkConnectionType$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/p2p/EosNetworkConnectionType;
+}
+
+public final class gg/sona/eos/p2p/EosP2P {
+	public static final field Companion Lgg/sona/eos/p2p/EosP2P$Companion;
+	public static final field MAX_CONNECTIONS I
+	public static final field MAX_PACKET_SIZE I
+	public static final field MAX_QUEUE_SIZE_UNLIMITED J
+	public static final field SOCKET_NAME_SIZE I
+	public final fun acceptConnection-lfN927A (JJLgg/sona/eos/p2p/EosP2PSocketId;)Lgg/sona/eos/EosResult;
+	public final fun addNotifyIncomingPacketQueueFull (Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun addNotifyPeerConnectionClosed-s3Mbdwk (JLgg/sona/eos/p2p/EosP2PSocketId;Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun addNotifyPeerConnectionEstablished-s3Mbdwk (JLgg/sona/eos/p2p/EosP2PSocketId;Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun addNotifyPeerConnectionInterrupted-s3Mbdwk (JLgg/sona/eos/p2p/EosP2PSocketId;Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun addNotifyPeerConnectionRequest-s3Mbdwk (JLgg/sona/eos/p2p/EosP2PSocketId;Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun clearPacketQueue-lfN927A (JJLgg/sona/eos/p2p/EosP2PSocketId;)Lgg/sona/eos/EosResult;
+	public final fun closeConnection-lfN927A (JJLgg/sona/eos/p2p/EosP2PSocketId;)Lgg/sona/eos/EosResult;
+	public final fun closeConnections-pPv1uy4 (JLgg/sona/eos/p2p/EosP2PSocketId;)Lgg/sona/eos/EosResult;
+	public final fun getNATType ()Lgg/sona/eos/p2p/EosNatType;
+	public final fun getNextReceivedPacketSize-pPv1uy4 (JLjava/lang/Integer;)Ljava/lang/Integer;
+	public static synthetic fun getNextReceivedPacketSize-pPv1uy4$default (Lgg/sona/eos/p2p/EosP2P;JLjava/lang/Integer;ILjava/lang/Object;)Ljava/lang/Integer;
+	public final fun getPacketQueueInfo ()Lgg/sona/eos/p2p/PacketQueueInfo;
+	public final fun getPortRange ()Lgg/sona/eos/p2p/PortRange;
+	public final fun getRelayControl ()Lgg/sona/eos/p2p/EosRelayControl;
+	public final fun queryNATType ()Ljava/util/concurrent/CompletableFuture;
+	public final fun receivePacket-s3Mbdwk (JILjava/lang/Integer;)Lgg/sona/eos/p2p/P2PReceivedPacket;
+	public static synthetic fun receivePacket-s3Mbdwk$default (Lgg/sona/eos/p2p/EosP2P;JILjava/lang/Integer;ILjava/lang/Object;)Lgg/sona/eos/p2p/P2PReceivedPacket;
+	public final fun removeNotifyIncomingPacketQueueFull (Lgg/sona/eos/NotificationHandle;)V
+	public final fun removeNotifyPeerConnectionClosed (Lgg/sona/eos/NotificationHandle;)V
+	public final fun removeNotifyPeerConnectionEstablished (Lgg/sona/eos/NotificationHandle;)V
+	public final fun removeNotifyPeerConnectionInterrupted (Lgg/sona/eos/NotificationHandle;)V
+	public final fun removeNotifyPeerConnectionRequest (Lgg/sona/eos/NotificationHandle;)V
+	public final fun sendPacket-rVBvVHM (JJLgg/sona/eos/p2p/EosP2PSocketId;I[BLgg/sona/eos/p2p/EosPacketReliability;ZZ)Lgg/sona/eos/EosResult;
+	public static synthetic fun sendPacket-rVBvVHM$default (Lgg/sona/eos/p2p/EosP2P;JJLgg/sona/eos/p2p/EosP2PSocketId;I[BLgg/sona/eos/p2p/EosPacketReliability;ZZILjava/lang/Object;)Lgg/sona/eos/EosResult;
+	public final fun setPacketQueueSize (JJ)Lgg/sona/eos/EosResult;
+	public final fun setPortRange (II)Lgg/sona/eos/EosResult;
+	public final fun setRelayControl (Lgg/sona/eos/p2p/EosRelayControl;)Lgg/sona/eos/EosResult;
+}
+
+public final class gg/sona/eos/p2p/EosP2P$Companion {
+}
+
+public final class gg/sona/eos/p2p/EosP2PSocketId {
+	public static final field Companion Lgg/sona/eos/p2p/EosP2PSocketId$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun getName ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/p2p/EosP2PSocketId$Companion {
+}
+
+public final class gg/sona/eos/p2p/EosPacketReliability : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/p2p/EosPacketReliability$Companion;
+	public static final field ReliableOrdered Lgg/sona/eos/p2p/EosPacketReliability;
+	public static final field ReliableUnordered Lgg/sona/eos/p2p/EosPacketReliability;
+	public static final field UnreliableUnordered Lgg/sona/eos/p2p/EosPacketReliability;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/p2p/EosPacketReliability;
+	public static fun values ()[Lgg/sona/eos/p2p/EosPacketReliability;
+}
+
+public final class gg/sona/eos/p2p/EosPacketReliability$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/p2p/EosPacketReliability;
+}
+
+public final class gg/sona/eos/p2p/EosRelayControl : java/lang/Enum {
+	public static final field AllowRelays Lgg/sona/eos/p2p/EosRelayControl;
+	public static final field Companion Lgg/sona/eos/p2p/EosRelayControl$Companion;
+	public static final field ForceRelays Lgg/sona/eos/p2p/EosRelayControl;
+	public static final field NoRelays Lgg/sona/eos/p2p/EosRelayControl;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/p2p/EosRelayControl;
+	public static fun values ()[Lgg/sona/eos/p2p/EosRelayControl;
+}
+
+public final class gg/sona/eos/p2p/EosRelayControl$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/p2p/EosRelayControl;
+}
+
+public final class gg/sona/eos/p2p/IncomingPacketQueueFullInfo {
+	public synthetic fun <init> (JJJIJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getChannel ()I
+	public final fun getCurrentSizeBytes ()J
+	public final fun getLocalUserId-bqYAy6Q ()J
+	public final fun getMaxSizeBytes ()J
+	public final fun getPacketSizeBytes ()J
+}
+
+public final class gg/sona/eos/p2p/P2PReceivedPacket {
+	public synthetic fun <init> (JLgg/sona/eos/p2p/EosP2PSocketId;I[BLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getChannel ()I
+	public final fun getData ()[B
+	public final fun getRemoteUserId-bqYAy6Q ()J
+	public final fun getSocketId ()Lgg/sona/eos/p2p/EosP2PSocketId;
+}
+
+public final class gg/sona/eos/p2p/PacketQueueInfo {
+	public fun <init> (JJJJJJ)V
+	public final fun getIncomingCurrentPacketCount ()J
+	public final fun getIncomingCurrentSizeBytes ()J
+	public final fun getIncomingMaxSizeBytes ()J
+	public final fun getOutgoingCurrentPacketCount ()J
+	public final fun getOutgoingCurrentSizeBytes ()J
+	public final fun getOutgoingMaxSizeBytes ()J
+}
+
+public final class gg/sona/eos/p2p/PeerConnectionClosedInfo {
+	public synthetic fun <init> (JJLgg/sona/eos/p2p/EosP2PSocketId;Lgg/sona/eos/p2p/EosConnectionClosedReason;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getLocalUserId-bqYAy6Q ()J
+	public final fun getReason ()Lgg/sona/eos/p2p/EosConnectionClosedReason;
+	public final fun getRemoteUserId-bqYAy6Q ()J
+	public final fun getSocketId ()Lgg/sona/eos/p2p/EosP2PSocketId;
+}
+
+public final class gg/sona/eos/p2p/PeerConnectionEstablishedInfo {
+	public synthetic fun <init> (JJLgg/sona/eos/p2p/EosP2PSocketId;Lgg/sona/eos/p2p/EosConnectionEstablishedType;Lgg/sona/eos/p2p/EosNetworkConnectionType;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getLocalUserId-bqYAy6Q ()J
+	public final fun getNetworkType ()Lgg/sona/eos/p2p/EosNetworkConnectionType;
+	public final fun getRemoteUserId-bqYAy6Q ()J
+	public final fun getSocketId ()Lgg/sona/eos/p2p/EosP2PSocketId;
+	public final fun getType ()Lgg/sona/eos/p2p/EosConnectionEstablishedType;
+}
+
+public final class gg/sona/eos/p2p/PeerConnectionInterruptedInfo {
+	public synthetic fun <init> (JJLgg/sona/eos/p2p/EosP2PSocketId;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getLocalUserId-bqYAy6Q ()J
+	public final fun getRemoteUserId-bqYAy6Q ()J
+	public final fun getSocketId ()Lgg/sona/eos/p2p/EosP2PSocketId;
+}
+
+public final class gg/sona/eos/p2p/PeerConnectionRequestInfo {
+	public synthetic fun <init> (JJLgg/sona/eos/p2p/EosP2PSocketId;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getLocalUserId-bqYAy6Q ()J
+	public final fun getRemoteUserId-bqYAy6Q ()J
+	public final fun getSocketId ()Lgg/sona/eos/p2p/EosP2PSocketId;
+}
+
+public final class gg/sona/eos/p2p/PortRange {
+	public fun <init> (II)V
+	public final fun getAdditionalPorts ()I
+	public final fun getPort ()I
+}
+
+public final class gg/sona/eos/p2p/QueryNatTypeResult {
+	public fun <init> (Lgg/sona/eos/EosResult;Lgg/sona/eos/p2p/EosNatType;)V
+	public final fun getNatType ()Lgg/sona/eos/p2p/EosNatType;
+	public final fun getResult ()Lgg/sona/eos/EosResult;
+}
+
+public final class gg/sona/eos/playerdatastorage/EosPlayerDataStorage {
+	public final fun copyFileMetadataAtIndex-pPv1uy4 (JI)Lgg/sona/eos/playerdatastorage/FileMetadata;
+	public final fun copyFileMetadataByFilename-pPv1uy4 (JLjava/lang/String;)Lgg/sona/eos/playerdatastorage/FileMetadata;
+	public final fun deleteCache-U-VWpcI (Lgg/sona/eos/common/ProductUserId;)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun deleteCache-U-VWpcI$default (Lgg/sona/eos/playerdatastorage/EosPlayerDataStorage;Lgg/sona/eos/common/ProductUserId;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+	public final fun deleteFile-pPv1uy4 (JLjava/lang/String;)Ljava/util/concurrent/CompletableFuture;
+	public final fun duplicateFile-s3Mbdwk (JLjava/lang/String;Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
+	public final fun getFileMetadataCount-pZ5wb2o (J)I
+	public final fun queryFile-pPv1uy4 (JLjava/lang/String;)Ljava/util/concurrent/CompletableFuture;
+	public final fun queryFileList-pZ5wb2o (J)Ljava/util/concurrent/CompletableFuture;
+}
+
+public final class gg/sona/eos/playerdatastorage/FileMetadata {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;JJ)V
+	public final fun getFileSizeBytes ()J
+	public final fun getFilename ()Ljava/lang/String;
+	public final fun getLastModifiedTime ()J
+	public final fun getMd5 ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/presence/EosPresence {
+	public final fun addNotifyOnPresenceChanged-U7XWmHo (JLkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun hasPresence-1C97z-U (JJ)Z
+	public final fun queryPresence-1C97z-U (JJ)Ljava/util/concurrent/CompletableFuture;
+	public final fun removeNotifyOnPresenceChanged (Lgg/sona/eos/NotificationHandle;)V
+}
+
+public final class gg/sona/eos/presence/PresenceChangedInfo {
+	public synthetic fun <init> (JJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getLocalUserId-e3tKAQM ()J
+	public final fun getPresenceUserId-e3tKAQM ()J
+}
+
+public final class gg/sona/eos/progressionsnapshot/EosProgressionSnapshot {
+	public final fun addProgression (Ljava/lang/String;Ljava/lang/String;I)Lgg/sona/eos/EosResult;
+	public static synthetic fun addProgression$default (Lgg/sona/eos/progressionsnapshot/EosProgressionSnapshot;Ljava/lang/String;Ljava/lang/String;IILjava/lang/Object;)Lgg/sona/eos/EosResult;
+	public final fun beginSnapshot-pPv1uy4 (JLjava/lang/String;)Ljava/lang/Integer;
+	public static synthetic fun beginSnapshot-pPv1uy4$default (Lgg/sona/eos/progressionsnapshot/EosProgressionSnapshot;JLjava/lang/String;ILjava/lang/Object;)Ljava/lang/Integer;
+	public final fun deleteSnapshot-qZpfKx4 (Ljava/lang/String;J)Ljava/util/concurrent/CompletableFuture;
+	public final fun endSnapshot (Ljava/lang/String;)Lgg/sona/eos/EosResult;
+	public static synthetic fun endSnapshot$default (Lgg/sona/eos/progressionsnapshot/EosProgressionSnapshot;Ljava/lang/String;ILjava/lang/Object;)Lgg/sona/eos/EosResult;
+	public final fun submitSnapshot (Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun submitSnapshot$default (Lgg/sona/eos/progressionsnapshot/EosProgressionSnapshot;Ljava/lang/String;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+}
+
+public final class gg/sona/eos/reports/EosReports {
+	public final fun sendPlayerBehaviorReport-jjJwdyo (JJLjava/lang/String;Ljava/lang/String;[B)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun sendPlayerBehaviorReport-jjJwdyo$default (Lgg/sona/eos/reports/EosReports;JJLjava/lang/String;Ljava/lang/String;[BILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+}
+
+public final class gg/sona/eos/rtc/AudioBeforeSendInfo {
+	public synthetic fun <init> (JLjava/lang/String;Lgg/sona/eos/rtc/AudioFrames;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getBuffer ()Lgg/sona/eos/rtc/AudioFrames;
+	public final fun getLocalUserId-bqYAy6Q ()J
+	public final fun getRoomName ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/rtc/AudioFrames {
+	public final fun getChannels ()I
+	public final fun getFramesCount ()I
+	public final fun getSampleRate ()I
+	public final fun rms ()F
+}
+
+public final class gg/sona/eos/rtc/AudioInputStateInfo {
+	public synthetic fun <init> (JLjava/lang/String;Lgg/sona/eos/rtc/EosRtcAudioInputStatus;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getLocalUserId-bqYAy6Q ()J
+	public final fun getRoomName ()Ljava/lang/String;
+	public final fun getStatus ()Lgg/sona/eos/rtc/EosRtcAudioInputStatus;
+}
+
+public final class gg/sona/eos/rtc/AudioOutputStateInfo {
+	public synthetic fun <init> (JLjava/lang/String;Lgg/sona/eos/rtc/EosRtcAudioOutputStatus;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getLocalUserId-bqYAy6Q ()J
+	public final fun getRoomName ()Ljava/lang/String;
+	public final fun getStatus ()Lgg/sona/eos/rtc/EosRtcAudioOutputStatus;
+}
+
+public final class gg/sona/eos/rtc/DataReceivedInfo {
+	public synthetic fun <init> (JLjava/lang/String;[BJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getData ()[B
+	public final fun getLocalUserId-bqYAy6Q ()J
+	public final fun getRoomName ()Ljava/lang/String;
+	public final fun getSender-bqYAy6Q ()J
+}
+
+public final class gg/sona/eos/rtc/DisconnectedInfo {
+	public synthetic fun <init> (Lgg/sona/eos/EosResult;JLjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getLocalUserId-bqYAy6Q ()J
+	public final fun getResult ()Lgg/sona/eos/EosResult;
+	public final fun getRoomName ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/rtc/EosRtc {
+	public final fun addNotifyDisconnected-s3Mbdwk (JLjava/lang/String;Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun addNotifyParticipantStatusChanged-s3Mbdwk (JLjava/lang/String;Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun addNotifyRoomBeforeJoin-pPv1uy4 (JLkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun addNotifyRoomStatisticsUpdated-s3Mbdwk (JLjava/lang/String;Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun blockParticipant-Dz3b0hc (JLjava/lang/String;JZ)Ljava/util/concurrent/CompletableFuture;
+	public final fun getAdmin ()Lgg/sona/eos/rtc/EosRtcAdmin;
+	public final fun getAudio ()Lgg/sona/eos/rtc/EosRtcAudio;
+	public final fun getData ()Lgg/sona/eos/rtc/EosRtcData;
+	public final fun joinRoom-wqpYeoA (JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lgg/sona/eos/common/ProductUserId;IZZ)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun joinRoom-wqpYeoA$default (Lgg/sona/eos/rtc/EosRtc;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lgg/sona/eos/common/ProductUserId;IZZILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+	public final fun leaveRoom-pPv1uy4 (JLjava/lang/String;)Ljava/util/concurrent/CompletableFuture;
+	public final fun removeNotifyDisconnected (Lgg/sona/eos/NotificationHandle;)V
+	public final fun removeNotifyParticipantStatusChanged (Lgg/sona/eos/NotificationHandle;)V
+	public final fun removeNotifyRoomBeforeJoin (Lgg/sona/eos/NotificationHandle;)V
+	public final fun removeNotifyRoomStatisticsUpdated (Lgg/sona/eos/NotificationHandle;)V
+	public final fun setRoomSetting-ZfNzmHs (JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lgg/sona/eos/EosResult;
+	public final fun setSetting (Ljava/lang/String;Ljava/lang/String;)Lgg/sona/eos/EosResult;
+}
+
+public final class gg/sona/eos/rtc/EosRtcAdmin {
+	public final fun copyUserTokenByIndex (JI)Lgg/sona/eos/rtc/RtcAdminUserToken;
+	public final fun copyUserTokenByUserId-qZpfKx4 (JJ)Lgg/sona/eos/rtc/RtcAdminUserToken;
+	public final fun kick-qZpfKx4 (Ljava/lang/String;J)Ljava/util/concurrent/CompletableFuture;
+	public final fun queryJoinRoomToken-ZfNzmHs (JLjava/lang/String;Ljava/util/List;Ljava/util/List;)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun queryJoinRoomToken-ZfNzmHs$default (Lgg/sona/eos/rtc/EosRtcAdmin;JLjava/lang/String;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+	public final fun setParticipantHardMute-xH_fPK8 (Ljava/lang/String;JZ)Ljava/util/concurrent/CompletableFuture;
+}
+
+public final class gg/sona/eos/rtc/EosRtcAudio {
+	public final fun addNotifyAudioBeforeSend-s3Mbdwk (JLjava/lang/String;Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun addNotifyAudioDevicesChanged (Lkotlin/jvm/functions/Function0;)Lgg/sona/eos/NotificationHandle;
+	public final fun addNotifyAudioInputState-s3Mbdwk (JLjava/lang/String;Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun addNotifyAudioOutputState-s3Mbdwk (JLjava/lang/String;Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun addNotifyParticipantUpdated-s3Mbdwk (JLjava/lang/String;Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun copyInputDeviceInformationByIndex (I)Lgg/sona/eos/rtc/EosRtcAudioDeviceInfo;
+	public final fun copyOutputDeviceInformationByIndex (I)Lgg/sona/eos/rtc/EosRtcAudioDeviceInfo;
+	public final fun getInputDevicesCount ()I
+	public final fun getOutputDevicesCount ()I
+	public final fun queryInputDevicesInformation ()Ljava/util/concurrent/CompletableFuture;
+	public final fun queryOutputDevicesInformation ()Ljava/util/concurrent/CompletableFuture;
+	public final fun registerPlatformUser (Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
+	public final fun removeNotifyAudioBeforeSend (Lgg/sona/eos/NotificationHandle;)V
+	public final fun removeNotifyAudioDevicesChanged (Lgg/sona/eos/NotificationHandle;)V
+	public final fun removeNotifyAudioInputState (Lgg/sona/eos/NotificationHandle;)V
+	public final fun removeNotifyAudioOutputState (Lgg/sona/eos/NotificationHandle;)V
+	public final fun removeNotifyParticipantUpdated (Lgg/sona/eos/NotificationHandle;)V
+	public final fun sendAudio-q-GmJso (JLjava/lang/String;[SII)Lgg/sona/eos/EosResult;
+	public final fun setInputDeviceSettings-s3Mbdwk (JLjava/lang/String;Z)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun setInputDeviceSettings-s3Mbdwk$default (Lgg/sona/eos/rtc/EosRtcAudio;JLjava/lang/String;ZILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+	public final fun setOutputDeviceSettings-pPv1uy4 (JLjava/lang/String;)Ljava/util/concurrent/CompletableFuture;
+	public final fun unregisterPlatformUser (Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
+	public final fun updateParticipantVolume-MQQkfBI (JLjava/lang/String;Lgg/sona/eos/common/ProductUserId;F)Ljava/util/concurrent/CompletableFuture;
+	public final fun updateReceiving-MQQkfBI (JLjava/lang/String;Lgg/sona/eos/common/ProductUserId;Z)Ljava/util/concurrent/CompletableFuture;
+	public final fun updateReceivingVolume-s3Mbdwk (JLjava/lang/String;F)Ljava/util/concurrent/CompletableFuture;
+	public final fun updateSending-s3Mbdwk (JLjava/lang/String;Lgg/sona/eos/rtc/EosRtcAudioStatus;)Ljava/util/concurrent/CompletableFuture;
+	public final fun updateSendingVolume-s3Mbdwk (JLjava/lang/String;F)Ljava/util/concurrent/CompletableFuture;
+}
+
+public final class gg/sona/eos/rtc/EosRtcAudioDeviceInfo {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Z)V
+	public final fun getDeviceId ()Ljava/lang/String;
+	public final fun getDeviceName ()Ljava/lang/String;
+	public final fun isDefault ()Z
+}
+
+public final class gg/sona/eos/rtc/EosRtcAudioInputStatus : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/rtc/EosRtcAudioInputStatus$Companion;
+	public static final field Failed Lgg/sona/eos/rtc/EosRtcAudioInputStatus;
+	public static final field Idle Lgg/sona/eos/rtc/EosRtcAudioInputStatus;
+	public static final field Recording Lgg/sona/eos/rtc/EosRtcAudioInputStatus;
+	public static final field RecordingDisconnected Lgg/sona/eos/rtc/EosRtcAudioInputStatus;
+	public static final field RecordingSilent Lgg/sona/eos/rtc/EosRtcAudioInputStatus;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/rtc/EosRtcAudioInputStatus;
+	public static fun values ()[Lgg/sona/eos/rtc/EosRtcAudioInputStatus;
+}
+
+public final class gg/sona/eos/rtc/EosRtcAudioInputStatus$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/rtc/EosRtcAudioInputStatus;
+}
+
+public final class gg/sona/eos/rtc/EosRtcAudioOutputStatus : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/rtc/EosRtcAudioOutputStatus$Companion;
+	public static final field Failed Lgg/sona/eos/rtc/EosRtcAudioOutputStatus;
+	public static final field Idle Lgg/sona/eos/rtc/EosRtcAudioOutputStatus;
+	public static final field Playing Lgg/sona/eos/rtc/EosRtcAudioOutputStatus;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/rtc/EosRtcAudioOutputStatus;
+	public static fun values ()[Lgg/sona/eos/rtc/EosRtcAudioOutputStatus;
+}
+
+public final class gg/sona/eos/rtc/EosRtcAudioOutputStatus$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/rtc/EosRtcAudioOutputStatus;
+}
+
+public final class gg/sona/eos/rtc/EosRtcAudioStatus : java/lang/Enum {
+	public static final field AdminDisabled Lgg/sona/eos/rtc/EosRtcAudioStatus;
+	public static final field Companion Lgg/sona/eos/rtc/EosRtcAudioStatus$Companion;
+	public static final field Disabled Lgg/sona/eos/rtc/EosRtcAudioStatus;
+	public static final field Enabled Lgg/sona/eos/rtc/EosRtcAudioStatus;
+	public static final field NotListeningDisabled Lgg/sona/eos/rtc/EosRtcAudioStatus;
+	public static final field Unsupported Lgg/sona/eos/rtc/EosRtcAudioStatus;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/rtc/EosRtcAudioStatus;
+	public static fun values ()[Lgg/sona/eos/rtc/EosRtcAudioStatus;
+}
+
+public final class gg/sona/eos/rtc/EosRtcAudioStatus$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/rtc/EosRtcAudioStatus;
+}
+
+public final class gg/sona/eos/rtc/EosRtcData {
+	public static final field Companion Lgg/sona/eos/rtc/EosRtcData$Companion;
+	public static final field MAX_PACKET_SIZE I
+	public final fun addNotifyDataReceived-s3Mbdwk (JLjava/lang/String;Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun addNotifyParticipantUpdated-s3Mbdwk (JLjava/lang/String;Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun removeNotifyDataReceived (Lgg/sona/eos/NotificationHandle;)V
+	public final fun removeNotifyParticipantUpdated (Lgg/sona/eos/NotificationHandle;)V
+	public final fun sendData-s3Mbdwk (JLjava/lang/String;[B)Lgg/sona/eos/EosResult;
+	public final fun updateReceiving-MQQkfBI (JLjava/lang/String;Lgg/sona/eos/common/ProductUserId;Z)Ljava/util/concurrent/CompletableFuture;
+	public final fun updateSending-s3Mbdwk (JLjava/lang/String;Z)Ljava/util/concurrent/CompletableFuture;
+}
+
+public final class gg/sona/eos/rtc/EosRtcData$Companion {
+}
+
+public final class gg/sona/eos/rtc/EosRtcDataStatus : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/rtc/EosRtcDataStatus$Companion;
+	public static final field Disabled Lgg/sona/eos/rtc/EosRtcDataStatus;
+	public static final field Enabled Lgg/sona/eos/rtc/EosRtcDataStatus;
+	public static final field Unsupported Lgg/sona/eos/rtc/EosRtcDataStatus;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/rtc/EosRtcDataStatus;
+	public static fun values ()[Lgg/sona/eos/rtc/EosRtcDataStatus;
+}
+
+public final class gg/sona/eos/rtc/EosRtcDataStatus$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/rtc/EosRtcDataStatus;
+}
+
+public final class gg/sona/eos/rtc/EosRtcParticipantStatus : java/lang/Enum {
+	public static final field Companion Lgg/sona/eos/rtc/EosRtcParticipantStatus$Companion;
+	public static final field Joined Lgg/sona/eos/rtc/EosRtcParticipantStatus;
+	public static final field Left Lgg/sona/eos/rtc/EosRtcParticipantStatus;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/rtc/EosRtcParticipantStatus;
+	public static fun values ()[Lgg/sona/eos/rtc/EosRtcParticipantStatus;
+}
+
+public final class gg/sona/eos/rtc/EosRtcParticipantStatus$Companion {
+	public final fun fromValue (I)Lgg/sona/eos/rtc/EosRtcParticipantStatus;
+}
+
+public final class gg/sona/eos/rtc/JoinRoomResult {
+	public synthetic fun <init> (Lgg/sona/eos/EosResult;JLjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getLocalUserId-bqYAy6Q ()J
+	public final fun getResult ()Lgg/sona/eos/EosResult;
+	public final fun getRoomName ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/rtc/ParticipantStatusChangedInfo {
+	public synthetic fun <init> (JLjava/lang/String;JLgg/sona/eos/rtc/EosRtcParticipantStatus;ZLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getInBlocklist ()Z
+	public final fun getLocalUserId-bqYAy6Q ()J
+	public final fun getParticipantId-bqYAy6Q ()J
+	public final fun getRoomName ()Ljava/lang/String;
+	public final fun getStatus ()Lgg/sona/eos/rtc/EosRtcParticipantStatus;
+}
+
+public final class gg/sona/eos/rtc/ParticipantUpdatedInfo {
+	public synthetic fun <init> (JLjava/lang/String;JZLgg/sona/eos/rtc/EosRtcAudioStatus;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getAudioStatus ()Lgg/sona/eos/rtc/EosRtcAudioStatus;
+	public final fun getLocalUserId-bqYAy6Q ()J
+	public final fun getParticipantId-bqYAy6Q ()J
+	public final fun getRoomName ()Ljava/lang/String;
+	public final fun getSpeaking ()Z
+}
+
+public final class gg/sona/eos/rtc/QueryJoinRoomTokenResult {
+	public fun <init> (Lgg/sona/eos/EosResult;Ljava/lang/String;Ljava/lang/String;JI)V
+	public final fun getClientBaseUrl ()Ljava/lang/String;
+	public final fun getQueryId ()J
+	public final fun getResult ()Lgg/sona/eos/EosResult;
+	public final fun getRoomName ()Ljava/lang/String;
+	public final fun getTokenCount ()I
+}
+
+public final class gg/sona/eos/rtc/RoomBeforeJoinInfo {
+	public synthetic fun <init> (JLjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getLocalUserId-bqYAy6Q ()J
+	public final fun getRoomName ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/rtc/RoomStatisticsUpdatedInfo {
+	public synthetic fun <init> (JLjava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getLocalUserId-bqYAy6Q ()J
+	public final fun getRoomName ()Ljava/lang/String;
+	public final fun getStatisticJson ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/rtc/RtcAdminUserToken {
+	public synthetic fun <init> (JLjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getProductUserId-bqYAy6Q ()J
+	public final fun getToken ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/rtc/RtcDataParticipantUpdatedInfo {
+	public synthetic fun <init> (JLjava/lang/String;JLgg/sona/eos/rtc/EosRtcDataStatus;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getLocalUserId-bqYAy6Q ()J
+	public final fun getParticipantId-bqYAy6Q ()J
+	public final fun getRoomName ()Ljava/lang/String;
+	public final fun getStatus ()Lgg/sona/eos/rtc/EosRtcDataStatus;
+}
+
+public final class gg/sona/eos/sanctions/EosSanctions {
+	public final fun copyPlayerSanctionByIndex-pPv1uy4 (JI)Lgg/sona/eos/sanctions/Sanction;
+	public final fun createPlayerSanctionAppeal-s3Mbdwk (JLjava/lang/String;Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
+	public final fun getPlayerSanctionCount-pZ5wb2o (J)I
+	public final fun queryActivePlayerSanctions-pZ5wb2o (J)Ljava/util/concurrent/CompletableFuture;
+}
+
+public final class gg/sona/eos/sanctions/Sanction {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun getAction ()Ljava/lang/String;
+	public final fun getSanctionId ()Ljava/lang/String;
+	public final fun getTimePlaced ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/sessions/CreateOrUpdateSessionResult {
+	public fun <init> (Lgg/sona/eos/EosResult;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun getResult ()Lgg/sona/eos/EosResult;
+	public final fun getSessionId ()Ljava/lang/String;
+	public final fun getSessionName ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/sessions/EosSessions {
+	public final fun addNotifySessionInviteAccepted (Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun addNotifySessionInviteReceived (Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun createSession-GIWoRDc (Ljava/lang/String;Ljava/lang/String;ILgg/sona/eos/common/EpicAccountId;Z)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun createSession-GIWoRDc$default (Lgg/sona/eos/sessions/EosSessions;Ljava/lang/String;Ljava/lang/String;ILgg/sona/eos/common/EpicAccountId;ZILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+	public final fun destroySession (Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
+	public final fun endSession (Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
+	public final fun getInviteCount-5lOE03A (J)I
+	public final fun getInviteIdByIndex-U7XWmHo (JI)Ljava/lang/String;
+	public final fun joinSession-D0KnEgs (Ljava/lang/String;JLgg/sona/eos/common/EpicAccountId;)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun joinSession-D0KnEgs$default (Lgg/sona/eos/sessions/EosSessions;Ljava/lang/String;JLgg/sona/eos/common/EpicAccountId;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+	public final fun queryInvites-5lOE03A (J)Ljava/util/concurrent/CompletableFuture;
+	public final fun registerPlayers (Ljava/lang/String;Ljava/util/List;)Ljava/util/concurrent/CompletableFuture;
+	public final fun rejectInvite-KZz7kgc (Ljava/lang/String;J)Ljava/util/concurrent/CompletableFuture;
+	public final fun removeNotifySessionInviteAccepted (Lgg/sona/eos/NotificationHandle;)V
+	public final fun removeNotifySessionInviteReceived (Lgg/sona/eos/NotificationHandle;)V
+	public final fun sendInvite-qRI3gPk (Ljava/lang/String;JJ)Ljava/util/concurrent/CompletableFuture;
+	public final fun startSession (Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
+	public final fun unregisterPlayers (Ljava/lang/String;Ljava/util/List;)Ljava/util/concurrent/CompletableFuture;
+	public final fun updateSession (Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
+}
+
+public final class gg/sona/eos/sessions/RegisterPlayersResult {
+	public fun <init> (Lgg/sona/eos/EosResult;Ljava/lang/String;I)V
+	public final fun getAffectedCount ()I
+	public final fun getResult ()Lgg/sona/eos/EosResult;
+	public final fun getSessionName ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/sessions/SessionHandle {
+	public static final field Companion Lgg/sona/eos/sessions/SessionHandle$Companion;
+	public static final synthetic fun box-impl (J)Lgg/sona/eos/sessions/SessionHandle;
+	public static fun constructor-impl (J)J
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (JLjava/lang/Object;)Z
+	public static final fun equals-impl0 (JJ)Z
+	public final fun getRaw ()J
+	public fun hashCode ()I
+	public static fun hashCode-impl (J)I
+	public static final fun isValid-impl (J)Z
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (J)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()J
+}
+
+public final class gg/sona/eos/sessions/SessionHandle$Companion {
+	public final fun getInvalid-lrsk48U ()J
+}
+
+public final class gg/sona/eos/sessions/SessionInviteAcceptedInfo {
+	public synthetic fun <init> (Ljava/lang/String;JJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getFromUserId-e3tKAQM ()J
+	public final fun getLocalUserId-e3tKAQM ()J
+	public final fun getSessionId ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/sessions/SessionInviteReceivedInfo {
+	public synthetic fun <init> (Ljava/lang/String;JLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getFromUserId-e3tKAQM ()J
+	public final fun getSessionId ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/stats/EosStats {
+	public static final field Companion Lgg/sona/eos/stats/EosStats$Companion;
+	public static final field MAX_INGEST_STATS I
+	public static final field MAX_QUERY_STATS I
+	public static final field TIME_UNDEFINED J
+	public final fun copyStatByIndex-pPv1uy4 (JI)Lgg/sona/eos/stats/PlayerStat;
+	public final fun copyStatByName-pPv1uy4 (JLjava/lang/String;)Lgg/sona/eos/stats/PlayerStat;
+	public final fun getStatsCount-pZ5wb2o (J)I
+	public final fun ingestStat-QNFZzKE (Lgg/sona/eos/common/ProductUserId;JLjava/util/List;)Ljava/util/concurrent/CompletableFuture;
+	public final fun queryStats-ITBBh0k (Lgg/sona/eos/common/ProductUserId;JLjava/util/List;JJ)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun queryStats-ITBBh0k$default (Lgg/sona/eos/stats/EosStats;Lgg/sona/eos/common/ProductUserId;JLjava/util/List;JJILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+}
+
+public final class gg/sona/eos/stats/EosStats$Companion {
+}
+
+public final class gg/sona/eos/stats/IngestStat {
+	public fun <init> (Ljava/lang/String;I)V
+	public final fun getAmount ()I
+	public final fun getStatName ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/stats/IngestStatResult {
+	public synthetic fun <init> (Lgg/sona/eos/EosResult;JJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getLocalUserId-bqYAy6Q ()J
+	public final fun getResult ()Lgg/sona/eos/EosResult;
+	public final fun getTargetUserId-bqYAy6Q ()J
+}
+
+public final class gg/sona/eos/stats/PlayerStat {
+	public fun <init> (Ljava/lang/String;JJI)V
+	public final fun getEndTime ()J
+	public final fun getName ()Ljava/lang/String;
+	public final fun getStartTime ()J
+	public final fun getValue ()I
+}
+
+public final class gg/sona/eos/stats/QueryStatsResult {
+	public synthetic fun <init> (Lgg/sona/eos/EosResult;JJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getLocalUserId-bqYAy6Q ()J
+	public final fun getResult ()Lgg/sona/eos/EosResult;
+	public final fun getTargetUserId-bqYAy6Q ()J
+}
+
+public final class gg/sona/eos/titlestorage/EosTitleStorage {
+	public final fun copyFileMetadataAtIndex-U7XWmHo (JI)Lgg/sona/eos/titlestorage/TitleStorageFileMetadata;
+	public final fun copyFileMetadataByFilename-U7XWmHo (JLjava/lang/String;)Lgg/sona/eos/titlestorage/TitleStorageFileMetadata;
+	public final fun deleteCache-0qh6uSI (Lgg/sona/eos/common/EpicAccountId;)Ljava/util/concurrent/CompletableFuture;
+	public static synthetic fun deleteCache-0qh6uSI$default (Lgg/sona/eos/titlestorage/EosTitleStorage;Lgg/sona/eos/common/EpicAccountId;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+	public final fun getFileMetadataCount-5lOE03A (J)I
+	public final fun queryFile-U7XWmHo (JLjava/lang/String;)Ljava/util/concurrent/CompletableFuture;
+	public final fun queryFileList-5lOE03A (J)Ljava/util/concurrent/CompletableFuture;
+}
+
+public final class gg/sona/eos/titlestorage/TitleStorageFileMetadata {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;JJ)V
+	public final fun getFileSizeBytes ()J
+	public final fun getFilename ()Ljava/lang/String;
+	public final fun getLastModifiedTime ()J
+	public final fun getMd5 ()Ljava/lang/String;
+}
+
+public final class gg/sona/eos/ui/DisplaySettingsUpdatedInfo {
+	public fun <init> (ZZ)V
+	public final fun getFriendsOverlayExclusiveInput ()Z
+	public final fun getFriendsOverlayVisible ()Z
+}
+
+public final class gg/sona/eos/ui/EosUi {
+	public final fun acknowledgeEventId (J)Lgg/sona/eos/EosResult;
+	public final fun addNotifyDisplaySettingsUpdated (Lkotlin/jvm/functions/Function1;)Lgg/sona/eos/NotificationHandle;
+	public final fun getNotificationLocationPreference ()Lgg/sona/eos/ui/EosUiNotificationLocation;
+	public final fun getToggleFriendsButton ()I
+	public final fun getToggleFriendsKey ()I
+	public final fun hideFriends-5lOE03A (J)Ljava/util/concurrent/CompletableFuture;
+	public final fun isFriendsOverlayExclusiveInput-5lOE03A (J)Z
+	public final fun isFriendsOverlayVisible-5lOE03A (J)Z
+	public final fun isValidButtonCombination (I)Z
+	public final fun isValidKeyCombination (I)Z
+	public final fun removeNotifyDisplaySettingsUpdated (Lgg/sona/eos/NotificationHandle;)V
+	public final fun reportInputState-U7XWmHo (JI)Lgg/sona/eos/EosResult;
+	public final fun setDisplayPreference (Lgg/sona/eos/ui/EosUiNotificationLocation;)Lgg/sona/eos/EosResult;
+	public final fun setToggleFriendsButton (I)Lgg/sona/eos/EosResult;
+	public final fun setToggleFriendsKey (I)Lgg/sona/eos/EosResult;
+	public final fun showFriends-5lOE03A (J)Ljava/util/concurrent/CompletableFuture;
+}
+
+public final class gg/sona/eos/ui/EosUiNotificationLocation : java/lang/Enum {
+	public static final field BottomLeft Lgg/sona/eos/ui/EosUiNotificationLocation;
+	public static final field BottomRight Lgg/sona/eos/ui/EosUiNotificationLocation;
+	public static final field Companion Lgg/sona/eos/ui/EosUiNotificationLocation$Companion;
+	public static final field None Lgg/sona/eos/ui/EosUiNotificationLocation;
+	public static final field TopLeft Lgg/sona/eos/ui/EosUiNotificationLocation;
+	public static final field TopRight Lgg/sona/eos/ui/EosUiNotificationLocation;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lgg/sona/eos/ui/EosUiNotificationLocation;
+	public static fun values ()[Lgg/sona/eos/ui/EosUiNotificationLocation;
+}
+
+public final class gg/sona/eos/ui/EosUiNotificationLocation$Companion {
+}
+
+public final class gg/sona/eos/userinfo/EosUserInfo {
+	public final fun getLocalPlatformType ()Lgg/sona/eos/common/EosOnlinePlatform;
+	public final fun queryUserInfo-1C97z-U (JJ)Ljava/util/concurrent/CompletableFuture;
+	public final fun queryUserInfoByDisplayName-U7XWmHo (JLjava/lang/String;)Ljava/util/concurrent/CompletableFuture;
+	public final fun queryUserInfoByExternalAccount-gzWQLfQ (JLgg/sona/eos/common/EosExternalAccountType;Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
+}
+

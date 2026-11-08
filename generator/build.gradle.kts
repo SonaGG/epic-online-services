@@ -4,6 +4,7 @@ plugins {
 
 kotlin {
     jvmToolchain(25)
+    compilerOptions.optIn.add("com.squareup.kotlinpoet.ExperimentalKotlinPoetApi")
 }
 
 repositories {

@@ -69,7 +69,7 @@ val generateBindings by tasks.registering(JavaExec::class) {
     val sdk = providers.gradleProperty("eosSdk").orElse(providers.environmentVariable("EOS_SDK"))
     doFirst { require(sdk.isPresent) { "Set -PeosSdk or EOS_SDK to the EOS SDK folder" } }
     argumentProviders += CommandLineArgumentProvider {
-        listOf(File(sdk.get(), "SDK/Include").path, layout.projectDirectory.dir("src/nativeMain/kotlin").asFile.path)
+        listOf(File(sdk.get(), "SDK/Include").path, layout.projectDirectory.dir("src/nativeMain/kotlin").asFile.path, layout.projectDirectory.dir("src/commonMain/kotlin").asFile.path)
     }
 }
 

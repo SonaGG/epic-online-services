@@ -18,6 +18,8 @@ class NativeSdkTest {
         val version = Eos.version
         println("EOS SDK $version")
         assertTrue(version.isNotEmpty())
+        assertEquals(version, gg.sona.eos.sdk.EosSdk.getVersion())
+        assertEquals("EOS_Success", gg.sona.eos.sdk.EosSdk.eResultToString(EosResult.Success))
     }
 
     @Test

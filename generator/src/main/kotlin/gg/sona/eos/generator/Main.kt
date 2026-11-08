@@ -37,6 +37,7 @@ fun main(args: Array<String>) {
     val output = File(args[1])
     writeInvokers(headers, output)
     writeTrampolines(output)
+    SdkGenerator(SdkModel(File(args[0]), headers), headers, File(args[2])).run()
     println("Generated ${headers.functions.size} functions with ${headers.functions.map(headers::signature).toSet().size} signatures")
 }
 

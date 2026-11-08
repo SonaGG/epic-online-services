@@ -3,3 +3,5 @@ plugins {
 }
 
 rootProject.name = "EpicOnlineServices"
+
+include("generator")

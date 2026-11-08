@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     kotlin("multiplatform") version "2.4.20"
+    kotlin("jvm") version "2.4.20" apply false
     `maven-publish`
 }
 
@@ -27,15 +28,48 @@ kotlin {
     macosArm64()
     macosX64()
 
+    applyDefaultHierarchyTemplate {
+        common {
+            group("native") {
+                group("posix") {
+                    withLinux()
+                    withApple()
+                }
+            }
+        }
+    }
+
     compilerOptions {
         freeCompilerArgs.add("-Xexpect-actual-classes")
         optIn.add("kotlinx.cinterop.ExperimentalForeignApi")
+        optIn.add("kotlin.concurrent.atomics.ExperimentalAtomicApi")
     }
 
     sourceSets {
         commonTest.dependencies {
             implementation(kotlin("test"))
         }
+    }
+}
+
+val generator by configurations.creating {
+    isCanBeConsumed = false
+    attributes.attribute(Usage.USAGE_ATTRIBUTE, objects.named(Usage.JAVA_RUNTIME))
+}
+
+dependencies {
+    generator(project(":generator"))
+}
+
+val generateBindings by tasks.registering(JavaExec::class) {
+    description = "Generates the native invokers from the EOS SDK headers. Set -PeosSdk to the SDK folder."
+    classpath = generator
+    mainClass.set("gg.sona.eos.generator.MainKt")
+    javaLauncher.set(javaToolchains.launcherFor { languageVersion.set(JavaLanguageVersion.of(25)) })
+    val sdk = providers.gradleProperty("eosSdk").orElse(providers.environmentVariable("EOS_SDK"))
+    doFirst { require(sdk.isPresent) { "Set -PeosSdk or EOS_SDK to the EOS SDK folder" } }
+    argumentProviders += CommandLineArgumentProvider {
+        listOf(File(sdk.get(), "SDK/Include").path, layout.projectDirectory.dir("src/nativeMain/kotlin").asFile.path)
     }
 }
 

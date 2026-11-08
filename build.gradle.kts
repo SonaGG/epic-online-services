@@ -136,6 +136,9 @@ tasks.named<Copy>("jvmProcessResources") {
     from(generatedResourcesDir)
 }
 tasks.named("jvmTest") { dependsOn(copyRustShimResources) }
+tasks.withType<org.jetbrains.kotlin.gradle.targets.native.tasks.KotlinNativeTest>().configureEach {
+    providers.gradleProperty("eosLibrary").orNull?.let { environment("EOS_SDK_LIBRARY", it) }
+}
 
 publishing {
     publications.withType<MavenPublication>().configureEach {

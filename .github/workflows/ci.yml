@@ -1,0 +1,74 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  build-and-test:
+    strategy:
+      fail-fast: false
+      matrix:
+        # Each runner builds the eos-jni shim for its own host platform/arch
+        # (buildRustShim in build.gradle.kts only targets the host by
+        # default) - one runner per (OS, arch) combination this library
+        # bundles a shim binary for gives full coverage without needing a
+        # cross-compilation toolchain (`cross`, extra linkers, etc.) on any
+        # single runner.
+        include:
+          - os: windows-latest
+            platform: windows-x86_64
+          - os: ubuntu-latest
+            platform: linux-x86_64
+          - os: macos-latest
+            platform: macos-aarch64
+          - os: macos-15-intel
+            platform: macos-x86_64
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Make Gradle wrapper executable
+        if: runner.os != 'Windows'
+        run: chmod +x gradlew
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache cargo registry/target
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            native/eos-jni/target
+          key: ${{ matrix.platform }}-cargo-${{ hashFiles('native/eos-jni/Cargo.lock') }}
+
+      - name: Run eos-jni Rust test suite
+        working-directory: native/eos-jni
+        run: cargo test
+
+      # Gradle's own launcher needs 17+; settings.gradle.kts's foojay resolver auto-provisions
+      # the actual JDK 8 toolchain used to compile/run the Kotlin code and tests.
+      - name: Set up JDK for the Gradle launcher
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Build and run the Kotlin test suite
+        # No EOS SDK binary is available in CI (Epic's proprietary binaries are never checked into
+        # this repo - see NOTICE) - NativeLibraryTest.kt's `runIfAvailable` pattern skips the
+        # EOS-binary-dependent assertions automatically and this still validates everything else
+        # (the FFM->JNI shim, struct round trips, callback dispatch, all facade compilation).
+        run: ./gradlew build --stacktrace
+
+      - name: Upload built eos-jni shim
+        uses: actions/upload-artifact@v4
+        with:
+          name: eos-jni-${{ matrix.platform }}
+          path: |
+            native/eos-jni/target/release/*.dll
+            native/eos-jni/target/release/*.so
+            native/eos-jni/target/release/*.dylib
+          if-no-files-found: ignore

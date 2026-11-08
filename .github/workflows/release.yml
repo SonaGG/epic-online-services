@@ -1,0 +1,112 @@
+name: Release
+
+# Triggered by pushing a version tag, e.g.:
+#   git tag v1.1.1 && git push origin v1.1.1
+# Builds the eos-jni shim for every platform this library ships a binary
+# for (see ci.yml), merges all of them into one jar (native interop code
+# picks the right one at runtime per gg.sona.eos.internal.foreign.jni.NativeBridge),
+# then publishes to the Clover Maven repo.
+#
+# Required repo secrets: CLOVER_MAVEN_USERNAME, CLOVER_MAVEN_PASSWORD.
+# Optional: CLOVER_MAVEN_URL (falls back to the release/snapshot URL already
+# hardcoded in build.gradle.kts based on whether `version` ends in SNAPSHOT).
+
+on:
+  push:
+    tags:
+      - 'v*'
+  # Manual re-run: only meaningful when run against an existing tag ref (e.g. via "Run workflow"
+  # from a tag), since the version-match check below requires GITHUB_REF_NAME to start with "v".
+  workflow_dispatch:
+
+jobs:
+  build-shims:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            platform: windows-x86_64
+            artifact: eos_jni.dll
+          - os: ubuntu-latest
+            platform: linux-x86_64
+            artifact: libeos_jni.so
+          - os: macos-latest
+            platform: macos-aarch64
+            artifact: libeos_jni.dylib
+          - os: macos-15-intel
+            platform: macos-x86_64
+            artifact: libeos_jni.dylib
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Build the eos-jni shim (release)
+        working-directory: native/eos-jni
+        run: cargo build --release
+
+      - name: Run the eos-jni Rust test suite
+        working-directory: native/eos-jni
+        run: cargo test
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: eos-jni-${{ matrix.platform }}
+          path: native/eos-jni/target/release/${{ matrix.artifact }}
+          if-no-files-found: error
+
+  publish:
+    needs: build-shims
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download all platform shims
+        uses: actions/download-artifact@v4
+        with:
+          pattern: eos-jni-*
+          path: shim-artifacts
+
+      - name: Stage every platform's shim into the resource tree the Gradle build packages
+        run: |
+          set -eu
+          declare -A DIR_FOR=(
+            [eos-jni-windows-x86_64]=windows-x86_64
+            [eos-jni-linux-x86_64]=linux-x86_64
+            [eos-jni-macos-aarch64]=macos-aarch64
+            [eos-jni-macos-x86_64]=macos-x86_64
+          )
+          for artifact_dir in shim-artifacts/*/; do
+            name="$(basename "$artifact_dir")"
+            platform="${DIR_FOR[$name]}"
+            target="build/generated-resources/natives/jni/$platform"
+            mkdir -p "$target"
+            cp "$artifact_dir"/* "$target/"
+          done
+          find build/generated-resources/natives -type f
+
+      # Gradle's own launcher needs 17+; settings.gradle.kts's foojay resolver auto-provisions
+      # the actual JDK 8 toolchain used to compile/run the Kotlin code and tests.
+      - name: Set up JDK for the Gradle launcher
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Setup permissions
+        run: chmod +x ./gradlew
+
+      - name: Publish to the Clover Maven repo
+        # The staged shims above already populate build/generated-resources for all 4 platforms;
+        # do NOT run the `clean` task here or they'd be wiped before packaging. buildRustShim /
+        # copyRustShimResources still run as part of processResources's dependency chain, but only
+        # add this runner's own host platform (redundant with what's already staged, harmless) -
+        # no Rust toolchain is installed on this job, so that step is a documented no-op.
+        env:
+          CLOVER_MAVEN_USERNAME: ${{ secrets.CLOVER_MAVEN_USERNAME }}
+          CLOVER_MAVEN_PASSWORD: ${{ secrets.CLOVER_MAVEN_PASSWORD }}
+          CLOVER_MAVEN_URL: ${{ secrets.CLOVER_MAVEN_URL }}
+        run: ./gradlew publish --stacktrace

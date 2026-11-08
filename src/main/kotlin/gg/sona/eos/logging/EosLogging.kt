@@ -1,0 +1,90 @@
+/*
+ * Copyright 2026 Sona Softworks LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package gg.sona.eos.logging
+
+import gg.sona.eos.EosResult
+import gg.sona.eos.internal.CallbackStubs
+import gg.sona.eos.internal.EosCallback
+import gg.sona.eos.internal.Native
+import gg.sona.eos.internal.getInt32
+import gg.sona.eos.internal.foreign.FunctionDescriptor
+import gg.sona.eos.internal.foreign.MemorySegment
+import gg.sona.eos.internal.foreign.ValueLayout
+
+/**
+ * The Logging interface allows registering a callback to receive log messages
+ * from the SDK, and to control the verbosity per category.
+ */
+object EosLogging {
+
+    private var currentCallback: EosLogMessageFunc? = null
+    private var currentCallbackId: Long = -1L
+    private val callbackLock = Any()
+
+    /**
+     * Set the callback function to use for SDK log messages. Any previously
+     * set callback will no longer be called. The supplied callback must
+     * remain valid until replaced.
+     */
+    fun setCallback(callback: EosLogMessageFunc?): EosResult {
+        synchronized(callbackLock) {
+            if (currentCallbackId != -1L) {
+                CallbackStubs.release(currentCallbackId)
+                currentCallbackId = -1L
+            }
+            currentCallback = callback
+            if (callback == null) {
+                val fn = Native.downcall(
+                    "EOS_Logging_SetCallback",
+                    FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.ADDRESS)
+                )
+                return EosResult.fromValue(fn.invokeExact(MemorySegment.NULL) as Int)
+            }
+            val invoker = EosCallback { rawData ->
+                val data = rawData.reinterpret(24)
+                val categoryPtr = data.get(ValueLayout.ADDRESS, 0)
+                val category = if (categoryPtr.address() == 0L) "" else
+                    categoryPtr.reinterpret(Long.MAX_VALUE).getString(0)
+                val messagePtr = data.get(ValueLayout.ADDRESS, 8)
+                val message = if (messagePtr.address() == 0L) "" else
+                    messagePtr.reinterpret(Long.MAX_VALUE).getString(0)
+                val level = EosLogLevel.fromValue(data.getInt32(16))
+                callback.onLogMessage(EosLogMessage(category, message, level))
+            }
+            val stub = CallbackStubs.register(invoker)
+            currentCallbackId = stub.id
+            val stubSeg = CallbackStubs.getStubSegment(currentCallbackId)
+                ?: error("Failed to register logging callback")
+            val setter = Native.downcall(
+                "EOS_Logging_SetCallback",
+                FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.ADDRESS)
+            )
+            return EosResult.fromValue(setter.invokeExact(stubSeg) as Int)
+        }
+    }
+
+    /**
+     * Set the log level for a category. The default is `Warning` for all
+     * categories. Use [EosLogCategory.AllCategories] to apply to all at once.
+     */
+    fun setLogLevel(category: EosLogCategory, level: EosLogLevel): EosResult {
+        val fn = Native.downcall(
+            "EOS_Logging_SetLogLevel",
+            FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT)
+        )
+        return EosResult.fromValue(fn.invokeExact(category.value, level.value) as Int)
+    }
+}

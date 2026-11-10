@@ -30,8 +30,15 @@ internal actual object NativeBackend {
 
     actual val isWindows: Boolean = System.getProperty("os.name").orEmpty().lowercase().contains("win")
 
+    private val isArm64: Boolean = System.getProperty("os.arch").orEmpty().lowercase().let { it.contains("aarch64") || it.contains("arm64") }
+
     actual fun openSdk(): Long {
-        for (name in listOf("EOSSDK", "EOSSDK-Win64-Shipping", "EOSSDK-Mac-Shipping", "EOSSDK-Linux-Shipping")) {
+        val names = if (isArm64) {
+            listOf("EOSSDK", "EOSSDK-Win64-Shippingarm64", "EOSSDK-Mac-Shipping", "libEOSSDK-LinuxArm64-Shipping.so")
+        } else {
+            listOf("EOSSDK", "EOSSDK-Win64-Shipping", "EOSSDK-Mac-Shipping", "EOSSDK-Linux-Shipping")
+        }
+        for (name in names) {
             try {
                 val handle = NativeBridge.nOpenLibrary(name)
                 if (handle != 0L) return handle
@@ -62,7 +69,11 @@ internal actual object NativeBackend {
         extracted[name]?.let { return it }
         synchronized(extracted) {
             extracted[name]?.let { return it }
-            val stream = NativeBackend::class.java.classLoader.getResourceAsStream("natives/$name") ?: return null
+            val loader = NativeBackend::class.java.classLoader
+            // xaudio2_9redist.dll has the same name on both architectures, so arm64 copies live in their own folder.
+            val stream = (if (isArm64) loader.getResourceAsStream("natives/arm64/$name") else null)
+                ?: loader.getResourceAsStream("natives/$name")
+                ?: return null
             val target = tempDir().resolve(name)
             stream.use { Files.copy(it, target, StandardCopyOption.REPLACE_EXISTING) }
             val path = target.toAbsolutePath().toString()
@@ -74,9 +85,9 @@ internal actual object NativeBackend {
     private fun bundledLibraryName(): String {
         val os = System.getProperty("os.name").lowercase()
         return when {
-            os.contains("win") -> "EOSSDK-Win64-Shipping.dll"
+            os.contains("win") -> if (isArm64) "EOSSDK-Win64-Shippingarm64.dll" else "EOSSDK-Win64-Shipping.dll"
             os.contains("mac") || os.contains("darwin") -> "libEOSSDK-Mac-Shipping.dylib"
-            else -> "libEOSSDK-Linux-Shipping.so"
+            else -> if (isArm64) "libEOSSDK-LinuxArm64-Shipping.so" else "libEOSSDK-Linux-Shipping.so"
         }
     }
 

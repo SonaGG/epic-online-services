@@ -25,6 +25,14 @@ jobs:
             platform: macos-aarch64
           - os: macos-15-intel
             platform: macos-x86_64
+          # Shim only: these legs build and test eos-jni but skip Gradle. Kotlin/Native
+          # has no Windows arm64 host, and the JVM jar is identical on every runner.
+          - os: windows-11-arm
+            platform: windows-aarch64
+            shim-only: true
+          - os: ubuntu-24.04-arm
+            platform: linux-aarch64
+            shim-only: true
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -48,15 +56,22 @@ jobs:
         working-directory: native/eos-jni
         run: cargo test
 
+      - name: Build the eos-jni shim (release)
+        if: matrix.shim-only
+        working-directory: native/eos-jni
+        run: cargo build --release
+
       # Gradle's own launcher needs 17+; settings.gradle.kts's foojay resolver auto-provisions
       # the actual JDK 8 toolchain used to compile/run the Kotlin code and tests.
       - name: Set up JDK for the Gradle launcher
+        if: ${{ !matrix.shim-only }}
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '21'
 
       - name: Build and run the Kotlin test suite
+        if: ${{ !matrix.shim-only }}
         # No EOS SDK binary is available in CI (Epic's proprietary binaries are never checked into
         # this repo - see NOTICE) - NativeLibraryTest.kt's `runIfAvailable` pattern skips the
         # EOS-binary-dependent assertions automatically and this still validates everything else

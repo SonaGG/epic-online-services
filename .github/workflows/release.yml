@@ -37,6 +37,12 @@ jobs:
           - os: macos-15-intel
             platform: macos-x86_64
             artifact: libeos_jni.dylib
+          - os: windows-11-arm
+            platform: windows-aarch64
+            artifact: eos_jni.dll
+          - os: ubuntu-24.04-arm
+            platform: linux-aarch64
+            artifact: libeos_jni.so
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -78,6 +84,8 @@ jobs:
             [eos-jni-linux-x86_64]=linux-x86_64
             [eos-jni-macos-aarch64]=macos-aarch64
             [eos-jni-macos-x86_64]=macos-x86_64
+            [eos-jni-windows-aarch64]=windows-aarch64
+            [eos-jni-linux-aarch64]=linux-aarch64
           )
           for artifact_dir in shim-artifacts/*/; do
             name="$(basename "$artifact_dir")"
@@ -100,7 +108,7 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Publish to the Clover Maven repo
-        # The staged shims above already populate build/generated-resources for all 4 platforms;
+        # The staged shims above already populate build/generated-resources for all 6 platforms;
         # do NOT run the `clean` task here or they'd be wiped before packaging. buildRustShim /
         # copyRustShimResources still run as part of processResources's dependency chain, but only
         # add this runner's own host platform (redundant with what's already staged, harmless) -

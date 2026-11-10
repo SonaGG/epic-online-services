@@ -56,7 +56,10 @@ internal actual object NativeBackend {
         val names = when (Platform.osFamily) {
             OsFamily.WINDOWS -> listOf("EOSSDK-Win64-Shipping.dll", "EOSSDK.dll")
             OsFamily.MACOSX -> listOf("libEOSSDK-Mac-Shipping.dylib", "@executable_path/libEOSSDK-Mac-Shipping.dylib")
-            else -> listOf("libEOSSDK-Linux-Shipping.so", "libEOSSDK.so")
+            else -> listOf(
+                if (Platform.cpuArchitecture == CpuArchitecture.ARM64) "libEOSSDK-LinuxArm64-Shipping.so" else "libEOSSDK-Linux-Shipping.so",
+                "libEOSSDK.so",
+            )
         }
         for (name in listOfNotNull(getenv("EOS_SDK_LIBRARY")?.toKString()) + names) openLibrary(name).takeIf { it != 0L }?.let { return it }
         error("Could not load the EOS SDK. Put one of ${names.joinToString()} next to the executable or on the library path.")

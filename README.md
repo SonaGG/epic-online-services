@@ -164,12 +164,16 @@ The shared library is loaded automatically from one of:
    this library, not from this library's own jar: place the appropriate
    binary under your app's own `src/main/resources/natives/` (or any other
    classpath source) for your target platform (`EOSSDK-Win64-Shipping.dll`,
-   `libEOSSDK-Linux-Shipping.so`, or `libEOSSDK-Mac-Shipping.dylib`).
+   `EOSSDK-Win64-Shippingarm64.dll`, `libEOSSDK-Linux-Shipping.so`,
+   `libEOSSDK-LinuxArm64-Shipping.so`, or `libEOSSDK-Mac-Shipping.dylib`).
 
 When RTC is enabled on Windows, `xaudio2_9redist.dll` is loaded the same way
 — bundle it alongside the platform binary under `natives/` in your app's
-resources, or set `EosRtcOptions.xAudio29DllPath` to an absolute path
-yourself.
+resources (the Windows arm64 copy goes under `natives/arm64/`), or set
+`EosRtcOptions.xAudio29DllPath` to an absolute path yourself.
+
+Windows arm64 is supported on the JVM only, because Kotlin/Native has no
+Windows arm64 target. Linux arm64 is supported on the JVM and Kotlin/Native.
 
 Separately, this library bundles a small JNI bridge of its own (`eos-jni`,
 under `native/eos-jni/`) that performs the actual native calls - unlike the

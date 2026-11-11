@@ -64,8 +64,22 @@ jobs:
           path: native/eos-jni/target/release/${{ matrix.artifact }}
           if-no-files-found: error
 
-  publish:
+  sign-windows:
     needs: build-shims
+    strategy:
+      fail-fast: true
+      matrix:
+        artifact: [eos-jni-windows-x86_64, eos-jni-windows-aarch64]
+    permissions:
+      id-token: write
+      contents: read
+    uses: SonaGG/workflows/.github/workflows/sign-windows.yml@main
+    with:
+      artifact-name: ${{ matrix.artifact }}
+      files-filter: dll
+
+  publish:
+    needs: [build-shims, sign-windows]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
